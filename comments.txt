@@ -1,0 +1,5 @@
+this doc is created for git push dummy
+
+dev enviroment: VMware+ubuntu+nodejs+sublime
+Some days may need for in-depth study on node
+Happy National Day to myself
