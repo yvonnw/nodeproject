@@ -2,25 +2,53 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
-<script type="text/javascript" src="connect2db.js"></script>
+<!--script type="text/javascript" src="public/js/jquery-3.2.1.min.js"></script-->
+<script type="text/javascript">
+var count = 1;
+function addT(newType){
+  console.log(count);
+  var obj = document.getElementById('form2');
+  var newInput_tTitle = document.createElement(newType);
+  newInput_tTitle.name =  'tTitle'+count;
+  newInput_tTitle.id = 'tTitle'+count;
+  obj.appendChild(newInput_tTitle);
+
+  var newInput_tPriority = document.createElement("input");
+  newInput_tPriority.name = 'tPriority'+count;
+  newInput_tPriority.id = 'tPriority'+count;
+  obj.appendChild(newInput_tPriority);
+
+  var newInput_tdeadline = document.createElement("input");
+  newInput_tdeadline.name = 'tdeadline'+count;
+  newInput_tPriority.id = 'tdeadline'+count;
+  obj.appendChild(newInput_tdeadline);
+  var newLine = document.createElement("br");
+  obj.appendChild(newLine);
+  count = count+1;
+}
+</script>
+
+
+
+
 <title>Add Story and Task</title>
 </head>
 
 <body>
 <p><strong>AddStory and Tasks:</strong></p>
 <p>&nbsp;</p>
-<form action="addStoryAndTask()" method="post" enctype="multipart/form-data" name="form2" id="form2">
+<form method="post" action="/addStory" name="form2" id="form2">
   <label>storyTitle
-  <input id="addStoryTitle" type="text" name="textfield" />
+  <input id="addStoryTitle" type="text" name="addStoryTitle" />
   </label>
   <p>
     <label>Description
-    <textarea id="addStoryDes" name="textarea"></textarea>
+    <textarea id="addStoryDes" name="addStoryDes"></textarea>
     </label>
   </p>
   <p>
     <label>Priority
-    <select id="addStoryPriority" name="sPriority">
+    <select id="addStoryPriority" name="addStoryPriority">
 <option value="high">High</option>
 <option value="medium">Medium</option>
 <option value="low">Low</option>
@@ -29,18 +57,24 @@
   </p>
   <p>
     <label>Deadline
-    <input id="addStoryDeadline" type="text" name="textfield2" />
+    <input id="addStoryDeadline" type="text" name="addStoryDeadline" />
     </label>
-  </p>
+  e.g. 2017-10-18</p>
+  <input id="addT" type="button" value="Add Task", onclick="addT("input")"/>
   <p>&nbsp;</p>
+  <p>&nbsp;</p>
+<br>
+
+
+
   <p>
     <label>taskTitle 
-    <input id="addTaskTitle" type="text" name="textfield3" />
+    <input id="addTaskTitle" type="text" name="addTaskTitle" />
     </label>
   </p>
   <p>
     <label>Priority
-    <select id="addTaskPriority" name="tPriority">
+    <select id="addTaskPriority" name="addTaskPriority">
 	<option value="high">High</option>
 	<option value="medium">Medium</option>
 	<option value="low">Low</option>
@@ -49,16 +83,59 @@
   </p>
   <p>
     <label>Deadline
-    <input id="addTaskDeadline" type="text" name="textfield4" />
+    <input id="addTaskDeadline" type="text" name="addTaskDeadline" />
     </label>
   </p>
+
+
+
   <p>&nbsp;</p>
   <p>
     <label>
-    <input type="submit" value="Submit"/>
+    <input id="submitS" type="submit" value="Submit"/>
     </label>
   </p>
 </form>
+
+
+<!--script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
+<script type="text/javascript">
+  var storyTitle = document.getElementById("addStoryTitle");
+console.log(storyTitle);
+
+$(function(){ 
+        
+        $("#submitS").onclick(function(){ 
+            var addStoryTitle = $("#addStoryTitle").val();
+            var addStoryDes = $("#addStoryDes").val();
+            
+            //if(addStoryTitle === ''){ 
+                //$("#addStoryTitle").css("border","1px solid red");
+                
+            //}else 
+            if(addStoryTitle != ''){
+            var data = {"addStoryTitle":addStoryTitle,"addStoryDes":addStoryDes};
+            $.ajax({ 
+                url: '/addStory',
+                type: 'post',
+                data: data,
+                success: function(data,status){ 
+                    if(status == 'success'){ 
+                        //location.href = 'login';
+                        console.log('success')
+                    }
+                },
+                error: function(data,err){ 
+                        //location.href = 'register';
+                        console.log('fail')
+                }
+            }); 
+        }
+        });
+    });
+</script-->
+
+
 </body>
 </html>
 

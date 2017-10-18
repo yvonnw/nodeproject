@@ -1,3 +1,15 @@
+[2017_10_18]
+Data can be successfully uploaded into database from webpage by adding new route, creating new module and some minor changes.
+
+I am tring to work out dynamically appending fields to add new tasks when users want to add tasks after adding story. 
+
+It is preferred to focus on the functions and user experience first, so the page UI may be ugly at this stage, the UI may be improved in next stage. If you cannot image how ugly it is, please hit http://localhost:3000
+
+
+
+
+
+[2017_10_15]
 This server is created for the project used to manage story and task under agile mode. 
 
 It is base on mysql database and is supposed to be operated via webpage, such as, add story and task, review them.
