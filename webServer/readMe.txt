@@ -3,7 +3,7 @@
 
 
 
-[2017_10_18]
+[2017_10_20]
 Dynamically appending fields is done. user can create story and task via web page. 
 
 Field 'parent' is used to recognize the relationship between story and task.
