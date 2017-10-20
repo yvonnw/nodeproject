@@ -12,8 +12,8 @@ app.use(bodyParser.urlencoded());
 app.use(express.static('public'));
 
 //use module to route post
-var addStory = require('./add/addStory');
-app.post('/addStory', addStory.index);
+var addStoryAndTask = require('./add/addStoryAndTask');
+app.post('/addStoryAndTask', addStoryAndTask.index);
 
 
 /*

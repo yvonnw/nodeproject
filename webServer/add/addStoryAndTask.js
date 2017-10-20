@@ -49,16 +49,11 @@ exports.index = function(req,res){
     	var addTaskP = eval('req.body.tPriority'+count);
     	var addTaskD = eval('req.body.tdeadline'+count);
     	
-    	console.log(count);
-    	//console.log(addTaskP);
-    	console.log(eval(addTaskTitle)); // convert string to variable name
-    	
-
-    	//connection.connect();
+    	//console.log(count);    	      	    	
     	
     	var addTSql = "insert into task(title, level, deadline, Parent) values('"+addTaskTitle+"', '"+addTaskP+"', '"+addTaskD+"', '"+addStoryTitle+"')";
 
-	//var addSql = 'insert into story(owner, title) values("yv", "insert record from node")';
+		//var addSql = 'insert into story(owner, title) values("yv", "insert record from node")';
 		connection.query(addTSql, function(err, result){
 		if(err){
 			console.log('[task insert error] - ', err.message);
@@ -74,7 +69,7 @@ exports.index = function(req,res){
 
 };
 	connection.end();
-	
+
 	res.redirect('/');
 
 };

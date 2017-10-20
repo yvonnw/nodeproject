@@ -2,30 +2,48 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
-<!--script type="text/javascript" src="public/js/jquery-3.2.1.min.js"></script-->
+
 <script type="text/javascript">
-var count = 1;
-function addT(newType){
+var count = 0;
+
+function addtask(){
+
+  count = count+1;
   console.log(count);
   var obj = document.getElementById('form2');
-  var newInput_tTitle = document.createElement(newType);
+  var newLine = document.createElement('br');
+  
+  var newInput_tTitle = document.createElement("input");
   newInput_tTitle.name =  'tTitle'+count;
   newInput_tTitle.id = 'tTitle'+count;
+  newInput_tTitle.placeholder = 'Task Title';
   obj.appendChild(newInput_tTitle);
-
-  var newInput_tPriority = document.createElement("input");
+  
+  var newInput_tPriority = document.createElement("select");
+  //document.write('Task Priority');
   newInput_tPriority.name = 'tPriority'+count;
   newInput_tPriority.id = 'tPriority'+count;
+  var opt = new Option('High');
+  newInput_tPriority.options.add(opt);
+  opt = new Option('Medium');
+  newInput_tPriority.options.add(opt);
+  opt = new Option('Low');
+  newInput_tPriority.options.add(opt);
   obj.appendChild(newInput_tPriority);
-
+  
   var newInput_tdeadline = document.createElement("input");
+  //document.write('Task Deadline');
   newInput_tdeadline.name = 'tdeadline'+count;
-  newInput_tPriority.id = 'tdeadline'+count;
+  newInput_tdeadline.id = 'tdeadline'+count;
+  newInput_tdeadline.placeholder = 'Task Deadline';
   obj.appendChild(newInput_tdeadline);
-  var newLine = document.createElement("br");
   obj.appendChild(newLine);
-  count = count+1;
+  obj.appendChild(newLine);
+
+  document.getElementById('hiddenCount').value = count;
+  
 }
+
 </script>
 
 
@@ -37,7 +55,7 @@ function addT(newType){
 <body>
 <p><strong>AddStory and Tasks:</strong></p>
 <p>&nbsp;</p>
-<form method="post" action="/addStory" name="form2" id="form2">
+<form method="post" action="/addStoryAndTask" name="form2" id="form2">
   <label>storyTitle
   <input id="addStoryTitle" type="text" name="addStoryTitle" />
   </label>
@@ -60,80 +78,12 @@ function addT(newType){
     <input id="addStoryDeadline" type="text" name="addStoryDeadline" />
     </label>
   e.g. 2017-10-18</p>
-  <input id="addT" type="button" value="Add Task", onclick="addT("input")"/>
-  <p>&nbsp;</p>
-  <p>&nbsp;</p>
+  <input id="hiddenCount" type="hidden" name="hiddenCount"/>
+  <input id="addT" type="button" value="Add Task", onclick="addtask()"/>
+  <input id="submitS" type="submit" value="Submit"/>
+  
+  <p>&nbsp;</p>  
 <br>
-
-
-
-  <p>
-    <label>taskTitle 
-    <input id="addTaskTitle" type="text" name="addTaskTitle" />
-    </label>
-  </p>
-  <p>
-    <label>Priority
-    <select id="addTaskPriority" name="addTaskPriority">
-	<option value="high">High</option>
-	<option value="medium">Medium</option>
-	<option value="low">Low</option>
-    </select>
-    </label>
-  </p>
-  <p>
-    <label>Deadline
-    <input id="addTaskDeadline" type="text" name="addTaskDeadline" />
-    </label>
-  </p>
-
-
-
-  <p>&nbsp;</p>
-  <p>
-    <label>
-    <input id="submitS" type="submit" value="Submit"/>
-    </label>
-  </p>
-</form>
-
-
-<!--script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
-<script type="text/javascript">
-  var storyTitle = document.getElementById("addStoryTitle");
-console.log(storyTitle);
-
-$(function(){ 
-        
-        $("#submitS").onclick(function(){ 
-            var addStoryTitle = $("#addStoryTitle").val();
-            var addStoryDes = $("#addStoryDes").val();
-            
-            //if(addStoryTitle === ''){ 
-                //$("#addStoryTitle").css("border","1px solid red");
-                
-            //}else 
-            if(addStoryTitle != ''){
-            var data = {"addStoryTitle":addStoryTitle,"addStoryDes":addStoryDes};
-            $.ajax({ 
-                url: '/addStory',
-                type: 'post',
-                data: data,
-                success: function(data,status){ 
-                    if(status == 'success'){ 
-                        //location.href = 'login';
-                        console.log('success')
-                    }
-                },
-                error: function(data,err){ 
-                        //location.href = 'register';
-                        console.log('fail')
-                }
-            }); 
-        }
-        });
-    });
-</script-->
 
 
 </body>

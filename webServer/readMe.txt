@@ -1,3 +1,19 @@
+[Feature list]: 
+1. create story and task via web page
+
+
+
+[2017_10_18]
+Dynamically appending fields is done. user can create story and task via web page. 
+
+Field 'parent' is used to recognize the relationship between story and task.
+
+I am moving onto the feature of fetching data and then display them. 
+
+
+
+
+
 [2017_10_18]
 Data can be successfully uploaded into database from webpage by adding new route, creating new module and some minor changes.
 
