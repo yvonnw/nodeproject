@@ -1,6 +1,12 @@
 [Feature list]: 
-1. create story and task via web page
+1. create story and task via web page (public/addStoryAndTask.html)
 
+
+
+[2017_10_24]
+Load story and task from db to webpage is done. story can be identified from tasks.
+
+Currently, all the stories and taskes are displayed in the order of what response gives, it will confuse user. Improvement is needed to group all the takes together and display under its story. 
 
 
 [2017_10_20]

@@ -3,87 +3,13 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
 
-<script type="text/javascript">
-var count = 0;
 
-function addtask(){
-
-  count = count+1;
-  console.log(count);
-  var obj = document.getElementById('form2');
-  var newLine = document.createElement('br');
-  
-  var newInput_tTitle = document.createElement("input");
-  newInput_tTitle.name =  'tTitle'+count;
-  newInput_tTitle.id = 'tTitle'+count;
-  newInput_tTitle.placeholder = 'Task Title';
-  obj.appendChild(newInput_tTitle);
-  
-  var newInput_tPriority = document.createElement("select");
-  //document.write('Task Priority');
-  newInput_tPriority.name = 'tPriority'+count;
-  newInput_tPriority.id = 'tPriority'+count;
-  var opt = new Option('High');
-  newInput_tPriority.options.add(opt);
-  opt = new Option('Medium');
-  newInput_tPriority.options.add(opt);
-  opt = new Option('Low');
-  newInput_tPriority.options.add(opt);
-  obj.appendChild(newInput_tPriority);
-  
-  var newInput_tdeadline = document.createElement("input");
-  //document.write('Task Deadline');
-  newInput_tdeadline.name = 'tdeadline'+count;
-  newInput_tdeadline.id = 'tdeadline'+count;
-  newInput_tdeadline.placeholder = 'Task Deadline';
-  obj.appendChild(newInput_tdeadline);
-  obj.appendChild(newLine);
-  obj.appendChild(newLine);
-
-  document.getElementById('hiddenCount').value = count;
-  
-}
-
-</script>
-
-
-
-
-<title>Add Story and Task</title>
+<title>Display Story and Task</title>
 </head>
 
 <body>
-<p><strong>AddStory and Tasks:</strong></p>
-<p>&nbsp;</p>
-<form method="post" action="/addStoryAndTask" name="form2" id="form2">
-  <label>storyTitle
-  <input id="addStoryTitle" type="text" name="addStoryTitle" />
-  </label>
-  <p>
-    <label>Description
-    <textarea id="addStoryDes" name="addStoryDes"></textarea>
-    </label>
-  </p>
-  <p>
-    <label>Priority
-    <select id="addStoryPriority" name="addStoryPriority">
-<option value="high">High</option>
-<option value="medium">Medium</option>
-<option value="low">Low</option>
-</select>
-    </label>
-  </p>
-  <p>
-    <label>Deadline
-    <input id="addStoryDeadline" type="text" name="addStoryDeadline" />
-    </label>
-  e.g. 2017-10-18</p>
-  <input id="hiddenCount" type="hidden" name="hiddenCount"/>
-  <input id="addT" type="button" value="Add Task", onclick="addtask()"/>
-  <input id="submitS" type="submit" value="Submit"/>
-  
-  <p>&nbsp;</p>  
-<br>
+<p><strong>Display Story and Tasks:</strong></p>
+<p><a href="/fetchStoryAndTask">List Story and Task</p>
 
 
 </body>

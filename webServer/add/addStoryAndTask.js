@@ -51,7 +51,7 @@ exports.index = function(req,res){
     	
     	//console.log(count);    	      	    	
     	
-    	var addTSql = "insert into task(title, level, deadline, Parent) values('"+addTaskTitle+"', '"+addTaskP+"', '"+addTaskD+"', '"+addStoryTitle+"')";
+    	var addTSql = "insert into task(ttitle, tlevel, tdeadline, tparent) values('"+addTaskTitle+"', '"+addTaskP+"', '"+addTaskD+"', '"+addStoryTitle+"')";
 
 		//var addSql = 'insert into story(owner, title) values("yv", "insert record from node")';
 		connection.query(addTSql, function(err, result){
@@ -70,7 +70,7 @@ exports.index = function(req,res){
 };
 	connection.end();
 
-	res.redirect('/');
+	res.redirect('/addStoryAndTask.html');
 
 };
 
