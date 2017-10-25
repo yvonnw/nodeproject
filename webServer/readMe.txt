@@ -1,5 +1,15 @@
 [Feature list]: 
 1. create story and task via web page (public/addStoryAndTask.html)
+2. display all the story and task by group (public/displayStoryAndTask.html)
+
+
+
+
+[2017_10_25]
+Feature 'display all the story and tasks' is done tasks can be grouped to list under their story. 
+
+I am working on the feature 'search and edit'.
+
 
 
 

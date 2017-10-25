@@ -11,38 +11,7 @@ var mysql = require('mysql');
 
 	connection.connect();
 
-	
-	/*fetch task from db
-	
-	var displaySql = "select * from task";
-	
-	connection.query(displaySql, function(err, result){
-		if(err){
-			console.log('[task display error] - ', err.message);
-			return;
-		}
-		console.log('------------------------task display');
-		//console.log(result);
-		console.log(result.length);
-		console.log('------------------------task display');
-		var tArrTitle = new Array();
-		var tArrDeadline = new Array();
-		var tArrLevel = new Array();
-		var tArrOwner = new Array();
-		for (var i = 0; i < result.length; i++){
-			tArrTitle[i] = result[i].ttitle;
-			tArrDeadline[i] = result[i].tdeadline;
-			tArrLevel[i] = result[i].tlevel;
-			tArrOwner[i] = result[i].towner;
-		}
-
-		
-
-
-	});
-*/
-
-	//fetch story and task from db	
+	var keyword = req.body.searchbox;
 	
 	displaySql = "select * from story as s left join task t on s.parent=t.tparent";
 	
@@ -56,7 +25,7 @@ var mysql = require('mysql');
 		//console.log(result.length);
 		//console.log('------------------------story and task display');
 		
-		var old = '';
+		
 		var listAll = "<table align='left' border='10' cellpadding='10'><caption>Story And Task List</caption><thead><tr><th><div align='left'>Title</div></th><th><div align='left'>Status</div></th><th><div align='left'>Priority</div></th>"+
 
                            "<th><div align='left'>Owner</div></th><th>Deadline</div></th><th><div align='left'>Description</div></th></tr>";
@@ -86,7 +55,7 @@ var mysql = require('mysql');
 	        };
 
 	        if (result[i].tparent != null){
-	        	
+
             listAll +="<tr><td>" + result[i].ttitle + "</td>" +  
 
             			"<td>" + result[i].tstatus + "</td>"+                        

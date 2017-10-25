@@ -15,6 +15,12 @@ app.use(express.static('public'));
 var addStoryAndTask = require('./add/addStoryAndTask');
 app.post('/addStoryAndTask', addStoryAndTask.index);
 
+var searchStoryAndTask = require('./Search/searchStoryTask');
+app.post('/searchStoryTask', searchStoryAndTask.index);
+
+
+
+
 //use module to route get
 var fetchStoryAndTask = require('./fetch/fetchStoryTask');
 app.get('/fetchStoryAndTask', fetchStoryAndTask.index);
