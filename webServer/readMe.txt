@@ -1,6 +1,20 @@
 [Feature list]: 
 1. create story and task via web page (public/addStoryAndTask.html)
 2. display all the story and task by group (public/displayStoryAndTask.html)
+3. fussy lookup
+
+
+[2017_10_29]
+Fussy lookup is done, all the story and task are listed by group
+
+For feature edit, user can directly edit on static page, field name, new content and story/task title can be delivered for database update.
+but there are issues that 
+1. jquery doesn't work if it is put into response, node gives error that 'ReferenceError: $ is not defined' and firefox tells 'the connection to the server was reset while the page was loading.' even though i can see firefox geting jquery-3.2.1.min.js. so weird.
+
+2. save jquery as a seperated js file and apply it on webpage, it doesnot work, i am still tring to work it out.
+
+
+so frustrated :-(
 
 
 
