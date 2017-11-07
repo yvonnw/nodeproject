@@ -2,6 +2,16 @@
 1. create story and task via web page (public/addStoryAndTask.html)
 2. display all the story and task by group (public/displayStoryAndTask.html)
 3. fussy lookup
+4. edit
+
+
+[2017_11_7]
+Feature edit is done.
+
+I am working on delete, delete button does not seem to look at other elements in table as its siblings, I am tring to find the reason or other ways will be used.
+
+A new network provider is subscribed, its network speed does not seem to be as fast as CMCC even though under the same bandwidth. very long hard days in the past.
+
 
 
 [2017_10_29]

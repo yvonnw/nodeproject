@@ -6,7 +6,8 @@ var bodyParser = require('body-parser');
 app.use(express.urlencoded());
 app.use(express.json());
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded());
+//app.use(bodyParser.urlencoded());
+app.use(bodyParser.urlencoded({extended:true}));
 
 //for defult page
 app.use(express.static('public'));
@@ -20,6 +21,9 @@ app.post('/searchStoryTask', searchStoryAndTask.index);
 
 var saveChange = require('./save_change/saveChange');
 app.post('/saveChange', saveChange.index);
+
+var deleterecord = require('./delete/delete');
+app.post('/delete', deleterecord.index);
 
 
 
