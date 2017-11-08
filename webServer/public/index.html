@@ -1,114 +1,98 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!DOCTYPE html>
+<html lang="en">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
-<script type='text/javascript' src='edit.js'></script>
-<!--script src="jquery-3.2.1.min.js"></script>
-<script>
-$(document).ready(function(){
-	//$("#editS").click(function(){
-	$("table td").click(function(){
-		oldV=$(this).text();
-		console.log('parent!!!!!!!!!!!!!!');
-		//get the title of the recored that is about to change
-		console.log($(this).siblings('th:eq(0)').text());
-		var changedTtile = $(this).siblings('th:eq(0)').text();
-		document.getElementById('hiddenTitle').value = changedTtile;
+    <meta charset="utf-8">    
+    <title>Register</title>    
+    <style type="text/css">
+    .m15{ margin: 15px;}
+     .tc{ text-align: center;font-size: 18px;font-weight: 600;}
+    </style>
 
-		//get the field that is about to changed
-		//console.log($(this).siblings());
-		//console.log($(this).prevUntil('th:eq(0)'));
-		//console.log($(this).prevUntil('th:eq(0)').length);
-		var prevLength = $(this).prevUntil('th:eq(0)').length;
-		var field = '';
-		switch(prevLength)
-		{
+<script type="text/javascript" src="jquery-3.2.1.min.js"></script>  
+  
+    <script>  
+    	/*
+    $(document).ready(function(){  
+        $("#registerButton").click(function(){ 
+        	console.log('registerButton is clicked');
+            var username = $("#username").val();
+            var password = $("#password").val();
+            var password1 = $("#password1").val();
+            var mailbox = $("#mailbox").val();
+            var role = $("#role").val();
+                      
+            $.ajax({ 
+            	type: 'POST',
+                url: '/register',                
+                data:'username='+username+'&password='+password+'&mailbox='+mailbox+'&role='+role    
 
-		case 3:
-			field = 'owner';
-			break;
-		case 2:
-			field = 'priority';
-			break;
-		case 1:
-			field = 'status';
-			break;
-		case 4:
-			field = 'deadline';
-			break;
-		case 5:
-			field = 'description';
-			break;
-		};
-		console.log(field);
-		document.getElementById('hiddenField').value = field;
-
-	  $(this).addClass('input').html('<input name="changed" value="'+$(this).text()+'"/>').find('input').focus().blur(function(){	  
-	 	var newV=$(this).val();
-	 	
-
-	  });
-
-	}
-
-
-	)
-});
-
-</script-->
-
-
-
-
-<title>Search and Edit</title>
+                success: function(data,status){ 
+                    if(status == 'success'){ 
+                        location.href = '/';
+                    }
+                },
+                error: function(data,err){ 
+                        location.href = 'www.baidu.com';
+                }           
+            }); 
+        
+    	});
+    });
+ */
+</script>
 </head>
-<form id="searchform" name="form3" method="post" action="/searchStoryTask">
-  <label>
-  <textarea id="searchbox" name="searchbox"></textarea>
-  </label>
-  <label>
-  <input type="submit" name="Submit" value="Search" />
-  </label>
+<body>
+    <div class="container">
+      <form method="post" action="/register">
+            <fieldset>
+                
+                <div>
+                <div>
+                    <p class="tc">Register</p>
+                </div>
+                <div class="m15">
+                <div>
+                    <div>
+                        
+                        Username <input type="text" class="form-control" id="username" name="username" placeholder="user name" required>
+                    </div>
+                </div>
+                <div>
+                    <div>
+                        
+                        Password <input type="password" id="password" name="password" placeholder="password" required>
+                    </div>
+                </div>
+                
+				<div>
+                    <div>                        
+                        Mail address <input type="text" class="form-control" id="mailbox" name="mailbox" placeholder="mail address" required>
+                    </div>
+                </div>
+				<div>
+                    <div>                        
+                        Role <input type="text" class="form-control" id="role" name="role" placeholder="PO, master or team member" required>
+                    </div>
+                </div>
+				
+                <div>
+                        <input id="registerButton" type="submit" value="Register"/>
+                        <!--button type="button" id="registerButton">Register</button-->
+                </div>
+                <div>
+                        <button type="button" id="login1">Login</button>
+                </div>
+                </div>
+                </div>
+            </fieldset>
+       </form> 
+    </div>
 
-</form>
-
-
-
-
-
-<form id="resultform" name="form4" method="post" action="/saveChange">
-  <table align='left' border='10' cellpadding='10'><caption>Search Result</caption><thead><tr><th><div align='left'>Title</div></th><th><div align='left'>Status</div></th><th><div align='left'>Priority</div></th><th><div align='left'>Owner</div></th><th>Deadline</div></th><th><div align='left'>Description</div></th><th><div align='left'>Edit Save</div></th></tr>
-  <tr><form method='post' class= 'editForm' action='/saveChange'>
-   <th bgcolor='#BEBEBE' name='editTd'>html story </th>
-   <td bgcolor='#BEBEBE' name='editTd1'> 1next html story </td>
-   <td bgcolor='#BEBEBE' name='editTd2'> 2next html story </td>
-   <td bgcolor='#BEBEBE' name='editTd3'> 3next html story </td>
-   <input id="hiddenTitle" type="hidden" name="hiddenTitle"/>
-   <th><input id='saveChange' type='submit' value='Save'/></th>
-   </tr>
-   <tr><form method='post' class= '1editForm' action='/saveChange'>
-   <th bgcolor='#BEBEBE' name='1editTd'>__html story </th>
-   <td bgcolor='#BEBEBE' name='1editTd1'> 1_next html story </td>
-   <td bgcolor='#BEBEBE' name='1editTd2'> 2_next html story </td>
-   <td bgcolor='#BEBEBE' name='1editTd3'> 3_next html story </td>
-   <input id="hiddenTitle" type="hidden" name="hiddenTitle"/>
-   <input id="hiddenField" type="hidden" name="hiddenField"/>
-   <th><input id='saveChange' type='submit' value='Save'/></th>
-   </tr>
-		
-
-</form>
-
-
-</thead>
-
-
-
-
-
-
+    
 </body>
+</head>
 </html>
+
 
 
 

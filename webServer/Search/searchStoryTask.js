@@ -47,9 +47,7 @@ var mysql = require('mysql');
 		
 		var listAll='';
 		var old = '';
-		for (var i = 0; i < result.length; i++){	
-			console.log('i=');		 
-			console.log(i);  
+		for (var i = 0; i < result.length; i++){ 
 
 			// !=null is added for the case that either story/task is successfully saved in db but its story or task not
 			// input cannot be used to show records, all the stings after space cannot be shown (whole record is picked up from db)

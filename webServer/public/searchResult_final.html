@@ -64,12 +64,14 @@ $(document).ready(function(){
 
 	});
 
-	$("#delete").click(function(){
+	//$("#delete").click(function(){
+	$("table button").click(function(){
 		console.log('goto delete');
-		console.log($(this).siblings());
-		console.log($(this).prevUntil('th:eq(0)'));
-		console.log($(this).siblings('th:eq(0)').text());
-		var deleteTitle = $(this).siblings('th:eq(0)').text();
+		console.log('parent siblings = '+$(this).parents('th').siblings());
+		//console.log($(this).prevUntil('th:eq(0)'));
+		console.log('deleteTitle ='+$(this).parents('th').siblings('th:eq(0)').text());
+		var deleteTitle = $(this).parents('th').siblings('th:eq(0)').text();
+		console.log('deleteTitle ='+deleteTitle);
 		if ($(this).attr('bgcolor') == '#BEBEBE'){
 			console.log('this is a story');
 			var category = 'story';
@@ -78,6 +80,7 @@ $(document).ready(function(){
 			console.log('this is a task');
 			var category = 'task';
 		}
+
 
 		
 		$.ajax({
@@ -89,4 +92,4 @@ $(document).ready(function(){
 });
 
 </script>
-<title>Search Result</title></head><body><table align='left' border='10' cellpadding='10'><caption>Search Result</caption><thead><tr><th><div align='left'>Title</div></th><th><div align='left'>Status</div></th><th><div align='left'>Priority</div></th><th><div align='left'>Owner</div></th><th>Deadline</div></th><th><div align='left'>Description</div></th><th><div align='left'>Delete</div></th></tr><tr><th bgcolor='#BEBEBE'>story for search</th><td bgcolor='#BEBEBE'>closed</td><td bgcolor='#BEBEBE'>low</td><td bgcolor='#BEBEBE'>111</td><td bgcolor='#BEBEBE'>Thu Oct 26 2017 00:00:00 GMT+0800 (CST)</td><td bgcolor='#BEBEBE'>story for search</td><th bgcolor='#BEBEBE'><button bgcolor='#BEBEBE' type='button' id='delete'>Delete</button></th></tr><tr><th>task3 for search_step3afterstep1andstep2</th><td>open</td><td>High</td><td>5555555555555</td><td>Thu Oct 26 2017 00:00:00 GMT+0800 (CST)</td><th></th><th><button type='button' id='delete'>Delete</button></th></tr><tr><th>task2 for search_step2afterstep1</th><td>open</td><td>low</td><td>null</td><td>Thu Oct 26 2017 00:00:00 GMT+0800 (CST)</td><th></th><th><button type='button' id='delete'>Delete</button></th></tr><tr><th>task1 for search_step1</th><td>open</td><td>High</td><td>null</td><td>Thu Oct 26 2017 00:00:00 GMT+0800 (CST)</td><th></th><th><button type='button' id='delete'>Delete</button></th></tr><tr><th bgcolor='#BEBEBE'>search record</th><td bgcolor='#BEBEBE'>open</td><td bgcolor='#BEBEBE'>low</td><td bgcolor='#BEBEBE'>null</td><td bgcolor='#BEBEBE'>Thu Oct 26 2017 00:00:00 GMT+0800 (CST)</td><td bgcolor='#BEBEBE'>blablablablabla...</td><th bgcolor='#BEBEBE'><button type='button' id='delete'>Delete</button></th></tr></thead></body></html>
+<title>Search Result</title></head><body><table align='left' border='10' cellpadding='10'><caption>Search Result</caption><thead><tr><th><div align='left'>Title</div></th><th><div align='left'>Status</div></th><th><div align='left'>Priority</div></th><th><div align='left'>Owner</div></th><th>Deadline</div></th><th><div align='left'>Description</div></th><th><div align='left'>Delete</div></th></tr><tr><th bgcolor='#BEBEBE'>s2</th><td bgcolor='#BEBEBE'>null</td><td bgcolor='#BEBEBE'>high</td><td bgcolor='#BEBEBE'>null</td><td bgcolor='#BEBEBE'>Wed Oct 18 2017 00:00:00 GMT+0800 (CST)</td><td bgcolor='#BEBEBE'>s2</td><th bgcolor='#BEBEBE'><button bgcolor='#BEBEBE'type='button' id='delete'>Delete</button></th></tr><tr><th>t2</th><td>null</td><td>High</td><td>null</td><td>Wed Oct 18 2017 00:00:00 GMT+0800 (CST)</td><th></th><th><button type='button' id='delete'>Delete</button></th></tr><tr><th>t1</th><td>null</td><td>High</td><td>yv</td><td>Wed Oct 18 2017 00:00:00 GMT+0800 (CST)</td><th></th><th><button type='button' id='delete'>Delete</button></th></tr><tr><th bgcolor='#BEBEBE'>s1</th><td bgcolor='#BEBEBE'>null</td><td bgcolor='#BEBEBE'>high</td><td bgcolor='#BEBEBE'>null</td><td bgcolor='#BEBEBE'>Wed Oct 18 2017 00:00:00 GMT+0800 (CST)</td><td bgcolor='#BEBEBE'>s1</td><th bgcolor='#BEBEBE'><button bgcolor='#BEBEBE'type='button' id='delete'>Delete</button></th></tr><tr><th bgcolor='#BEBEBE'>search record</th><td bgcolor='#BEBEBE'>open</td><td bgcolor='#BEBEBE'>low</td><td bgcolor='#BEBEBE'>null</td><td bgcolor='#BEBEBE'>Thu Oct 26 2017 00:00:00 GMT+0800 (CST)</td><td bgcolor='#BEBEBE'>blablablablabla...</td><th bgcolor='#BEBEBE'><button bgcolor='#BEBEBE'type='button' id='delete'>Delete</button></th></tr></thead></body></html>

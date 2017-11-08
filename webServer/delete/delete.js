@@ -35,7 +35,7 @@ exports.index = function(req,res){
 	var deleteSql_t = "delete from task where ttitle='"+deleteTitle+"'";
 	console.log('deleteSql_t = '+deleteSql_t);
 
-			connection.query(deleteSql_s, function(err, result){
+			connection.query(deleteSql_t, function(err, result){
 			if(err){
 			console.log('[delete error_task] - ', err.message);
 			return;

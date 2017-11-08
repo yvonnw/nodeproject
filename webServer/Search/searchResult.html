@@ -64,12 +64,13 @@ $(document).ready(function(){
 
 	});
 
-	$("#delete").click(function(){
+	$("table button").click(function(){
 		console.log('goto delete');
-		console.log($(this).siblings());
-		console.log($(this).prevUntil('th:eq(0)'));
-		console.log($(this).siblings('th:eq(0)').text());
-		var deleteTitle = $(this).siblings('th:eq(0)').text();
+		console.log('parent siblings = '+$(this).parents('th').siblings());
+		//console.log($(this).prevUntil('th:eq(0)'));
+		console.log('deleteTitle ='+$(this).parents('th').siblings('th:eq(0)').text());
+		var deleteTitle = $(this).parents('th').siblings('th:eq(0)').text();
+		console.log('deleteTitle ='+deleteTitle);
 		if ($(this).attr('bgcolor') == '#BEBEBE'){
 			console.log('this is a story');
 			var category = 'story';
@@ -78,6 +79,7 @@ $(document).ready(function(){
 			console.log('this is a task');
 			var category = 'task';
 		}
+
 
 		
 		$.ajax({

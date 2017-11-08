@@ -1,8 +1,17 @@
 [Feature list]: 
 1. create story and task via web page (public/addStoryAndTask.html)
 2. display all the story and task by group (public/displayStoryAndTask.html)
-3. fussy lookup
-4. edit
+3. fussy lookup (public/search_edit_delete.html)
+4. edit (public/search_edit_delete.html)
+5. delete (public/search_edit_delete.html)
+6. sign up
+
+
+
+[2017_11_8]
+Feature delete and sign up are done.
+
+I am gonna start feature login tomorrow.
 
 
 [2017_11_7]
