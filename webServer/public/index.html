@@ -1,99 +1,20 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="utf-8">    
-    <title>Register</title>    
-    <style type="text/css">
-    .m15{ margin: 15px;}
-     .tc{ text-align: center;font-size: 18px;font-weight: 600;}
-    </style>
-
-<script type="text/javascript" src="jquery-3.2.1.min.js"></script>  
-  
-    <script>  
-    	/*
-    $(document).ready(function(){  
-        $("#registerButton").click(function(){ 
-        	console.log('registerButton is clicked');
-            var username = $("#username").val();
-            var password = $("#password").val();
-            var password1 = $("#password1").val();
-            var mailbox = $("#mailbox").val();
-            var role = $("#role").val();
-                      
-            $.ajax({ 
-            	type: 'POST',
-                url: '/register',                
-                data:'username='+username+'&password='+password+'&mailbox='+mailbox+'&role='+role    
-
-                success: function(data,status){ 
-                    if(status == 'success'){ 
-                        location.href = '/';
-                    }
-                },
-                error: function(data,err){ 
-                        location.href = 'www.baidu.com';
-                }           
-            }); 
-        
-    	});
-    });
- */
-</script>
-</head>
-<body>
-    <div class="container">
-      <form method="post" action="/register">
-            <fieldset>
-                
-                <div>
-                <div>
-                    <p class="tc">Register</p>
-                </div>
-                <div class="m15">
-                <div>
-                    <div>
-                        
-                        Username <input type="text" class="form-control" id="username" name="username" placeholder="user name" required>
-                    </div>
-                </div>
-                <div>
-                    <div>
-                        
-                        Password <input type="password" id="password" name="password" placeholder="password" required>
-                    </div>
-                </div>
-                
-				<div>
-                    <div>                        
-                        Mail address <input type="text" class="form-control" id="mailbox" name="mailbox" placeholder="mail address" required>
-                    </div>
-                </div>
-				<div>
-                    <div>                        
-                        Role <input type="text" class="form-control" id="role" name="role" placeholder="PO, master or team member" required>
-                    </div>
-                </div>
-				
-                <div>
-                        <input id="registerButton" type="submit" value="Register"/>
-                        <!--button type="button" id="registerButton">Register</button-->
-                </div>
-                <div>
-                        <button type="button" id="login1">Login</button>
-                </div>
-                </div>
-                </div>
-            </fieldset>
-       </form> 
-    </div>
-
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Home</title>
+    <script src="https://cdn.bootcss.com/react/15.4.2/react.min.js"></script>
+    <script src="https://cdn.bootcss.com/react/15.4.2/react-dom.min.js"></script>
+    <script src="https://cdn.bootcss.com/babel-standalone/6.22.1/babel.min.js"></script>
+  </head>
+  <body>
+    <div id="searchBar"></div>
+    <script type="text/babel" src="searchbar.js"></script>
+    <div id="listStory"></div>
+    <script type="text/babel" src="liststory.js"></script>
+    <div id='createStory'></div>
+    <script type='text/babel' src='createstory.js'></script>
     
-</body>
-</head>
+    
+  </body>
 </html>
-
-
-
-
-

@@ -1,0 +1,23 @@
+<user>
+	<role>
+		<title>po</title>
+		<search>search bar</search>
+		<list>story</list>
+		<create>story</create>
+		<edit>story</edit>
+	</role>
+	<role>
+		<title>master</title>
+		<search>search bar</search>
+		<list>task</list>
+		<create>task</create>
+		<edit>task</edit>
+	</role>
+	<role>
+		<title>team member</title>
+		<search>search bar</search>
+		<list>task</list>
+		<create></create>
+		<edit>task</edit>
+	</role>
+</user>

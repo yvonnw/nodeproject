@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Home</title>
+    
+    <script>
+        var role = document.getElementsById('role').value
+        console.log('role in home_login = '+role);
+        var m='';
+        if (role == 'po'){m=0};
+        if (role == 'master'){m=1};
+        if (role == 'team member'){m=2};
+        var features = ['search','list','create','edit']        	
+    		xmlhttp = new XMLHttpRequest();
+            xmlhttp.open('get','container.xml',false);            
+            xmlhttp.send();            
+            xmlDoc = xmlhttp.responseXML;            
+            var x = xmlDoc.getElementsByTagName('role');
+
+            for (var i in features){
+                switch (features[i])
+                {
+                    case 'search': var search = x[m].getElementsByTagName(i)[0].childNodes[0].nodeValue;
+                    break;
+                    case 'list': var list = x[m].getElementsByTagName(i)[0].childNodes[0].nodeValue;
+                    break;
+                    case 'create': var create = x[m].getElementsByTagName(i)[0].childNodes[0].nodeValue;
+                    break;
+                    case 'edit': var edit = x[m].getElementsByTagName(i)[0].childNodes[0].nodeValue;
+                    break;
+                }
+
+            }
+            console.log('search = '+search);
+            console.log('list = '+list);
+            console.log('create = '+create);
+            console.log('edit = '+edit);
+
+        $.ajax({
+            url:'/home',
+            type:'post',
+            data:{'search':search,'list':list,'create':create,'edit':edit},
+
+        })
+
+
+        
+    </script>
+  </head>
+  <body>
+    
+  

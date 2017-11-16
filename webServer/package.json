@@ -16,6 +16,7 @@
     "express-session": "^1.15.6",
     "jquery": "^3.2.1",
     "mysql": "^2.15.0",
-    "path": "^0.12.7"
+    "path": "^0.12.7",
+    "xmlreader": "^0.2.3"
   }
 }

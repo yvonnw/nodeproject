@@ -28,13 +28,19 @@ app.post('/delete', deleterecord.index);
 var registerUser = require('./register/register');
 app.post('/register', registerUser.index);
 
+var login = require('./login/login');
+app.post('/login', login.index);
 
+var addStory = require('./add/addStory');
+app.post('/addStory', addStory.index);
 
 
 //use module to route get
 var fetchStoryAndTask = require('./fetch/fetchStoryTask');
 app.get('/fetchStoryAndTask', fetchStoryAndTask.index);
 
+var fetchStory = require('./fetch/fetchStory');
+app.get('/fetchStory', fetchStory.index);
 
 /*
 app.post("/addStory", function(req,res){

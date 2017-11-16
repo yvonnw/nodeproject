@@ -4,7 +4,14 @@
 3. fussy lookup (public/search_edit_delete.html)
 4. edit (public/search_edit_delete.html)
 5. delete (public/search_edit_delete.html)
-6. sign up
+6. sign up (public/signUp.html)
+
+
+
+[2017_11_16]
+for feature sign in (public/signin.html), home page is expected to vary from role to role, because po, master and team member have different operations on story and task. public/container.xml is used to define their different operations, therefore, if there will be changes on the operations of po, master or team member, public/container.xml is the only needed to change.
+
+currently i am working on add story.
 
 
 
