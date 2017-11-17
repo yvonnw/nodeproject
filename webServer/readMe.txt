@@ -8,6 +8,21 @@
 
 
 
+[2017_11_17]
+one issue is suddenly realized that file login/temp.xml is used to deliver username and role so that all the operations that belong to the user will be offered, it works well when users log in one by one, but if there are more the one users logging in like A logs in first, its record will be written in login/temp.xml, B logs in without A's logout, B's record will overwrite A's in login/temp.xml, and then A does its operations such as list all A's story/task, A's records will go wrong because of B's overwrite.
+
+Solution: 
+I am tring on changing cookie on client side, even though it is not optimal solution. 
+
+It is tried to change cookie on server side, but it conflicks with res.sendfile or res.write, error Error: Can't set headers after they are sent.
+
+
+Proverb:
+There is always traps on the way of making things work, there will always be one pattern that is your favorite. - Yvonne
+
+
+
+
 [2017_11_16]
 for feature sign in (public/signin.html), home page is expected to vary from role to role, because po, master and team member have different operations on story and task. public/container.xml is used to define their different operations, therefore, if there will be changes on the operations of po, master or team member, public/container.xml is the only needed to change.
 

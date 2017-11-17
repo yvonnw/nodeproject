@@ -18,8 +18,9 @@ var fs = require('fs');
 						if (err) return console.log(err);
 					var userrole = res.role.title.at(0).text();
 					var username = res.role.user.at(0).text();
-
-						
+				console.log('req.headers.cookie = '+req.headers.cookie);
+				console.log('req.cookies.username = '+req.headers.cookie.username);
+				console.log('req.cookies.userrole = '+req.headers.cookie.userrole);
 
 var mysql = require('mysql');
 	var connection = mysql.createConnection({

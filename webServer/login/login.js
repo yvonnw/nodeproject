@@ -5,8 +5,12 @@ exports.index = function(req,res){
     var username = req.body.username;
     var password = req.body.password;
     
-
+    console.log('req.body------------------------------');
 	console.log(req.body);
+    console.log('req.body------------------------------');
+    console.log('req.session------------------------------');
+    console.log(req.session);
+    console.log('req.session------------------------------');
     
 
     var mysql = require('mysql');
@@ -33,11 +37,38 @@ exports.index = function(req,res){
 			
 		} else {
 			console.log('------------------------user found');
+			req.session.username = username;
+			console.log('req.session.username = '+req.session.username);
+			req.session.role = result[0].role;
+			console.log('req.session.role = '+req.session.role);
+
+
+			/* 
+			file login/temp.xml is used for delivering parameter username and role, 
+			there is potential issue that login/temp.xml will be overwritten if there are more then 2 users.
+			I tried to save parameter in cookie, but there is conflict between res.cookie and res.sendfile,
+			error note 'Error: Can't set headers after they are sent.', so login/temp.xml seems to better way at present.
+			I am gonna move on, hopefully, newly better solution will be found soon.
+			res.cookie('user',{username: username, userrole: result[0].role}, {maxAge:600000, httpOnly:false});
+			*/
+			/*
+			var serialize = function(name, val, opt){
+				var pairs = [name + '=' + val];
+				return pairs.join(';');
+			}
+			res.setHeader('Set-Cookie', serialize('username',username),serialize('role',result[0].role));
+			res.writeHead(200);
+			*/
+			//res.cookie('username', username,{maxAge:600000, httpOnly:true});
+			//res.cookie('userrole', result[0].role, {maxAge:600000, httpOnly:true});
+
+
+
 			var userrole = result[0].role;
 			console.log('userrole = ' +userrole);
 			
 			var fs_temp = require('fs');
-			var content_temp = "<role><title>"+userrole+"</title><user>"+username+"</user></role>";
+			var content_temp = "<role><title>"+userrole+"</title><user>"+username+"</user></role>";			
 			fs_temp.writeFile('login/temp.xml', content_temp, function(err){
 
 									if (err) {
@@ -93,6 +124,12 @@ exports.index = function(req,res){
     			  					  "<script src='https://cdn.bootcss.com/react/15.4.2/react.min.js'></script>"+
     			  					  "<script src='https://cdn.bootcss.com/react/15.4.2/react-dom.min.js'></script>"+
 					    			  "<script src='https://cdn.bootcss.com/babel-standalone/6.22.1/babel.min.js'></script>"+
+					  				  "<script type='text/javascript' src='jquery-3.2.1.min.js'></script>"+
+										"<script>"+
+										"$(document).ready(function(){"+
+										"document.cookie='username='+document.getElementById('hiddenUsername').value"+
+										"document.cookie='userrole='+document.getElementById('hiddenrole').value"+
+										"</script>"+
 					  				  "</head><body>";
 						var htmlEnd = '</body></html>';
 						if (search == 'search bar'){
@@ -105,6 +142,8 @@ exports.index = function(req,res){
 							content+="<div id='createStory'></div><script type='text/babel' src='createstory.js'></script>"
 				           }
 
+				        content+="<input id='hiddenUsername' type='hidden' name='hiddenUsername' value='"+username+"'/>";
+				        content+="<input id='hiddenrole' type='hidden' name='hiddenrole value='"+userrole+"'/>";
 						content+= htmlEnd;	
 
 						var fs_body = require('fs');
@@ -129,5 +168,6 @@ exports.index = function(req,res){
 }); //check user
 connection.end();
 res.sendfile('public/home.html');
+
 
 } //module
