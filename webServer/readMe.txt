@@ -18,7 +18,7 @@ It is tried to change cookie on server side, but it conflicks with res.sendfile 
 
 
 Proverb:
-There is always traps on the way of making things work, there will always be one pattern that is your favorite. - Yvonne
+There are always traps on the way of making things work, there will always be one pattern that is your favorite. - Yvonne
 
 
 
