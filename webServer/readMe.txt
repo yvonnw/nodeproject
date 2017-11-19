@@ -7,6 +7,11 @@
 6. sign up (public/signUp.html)
 
 
+[2017_11_19]
+issue is fixed, session is used.
+
+I am gonna move on tomorrow.
+
 
 [2017_11_17]
 one issue is suddenly realized that file login/temp.xml is used to deliver username and role so that all the operations that belong to the user will be offered, it works well when users log in one by one, but if there are more the one users logging in like A logs in first, its record will be written in login/temp.xml, B logs in without A's logout, B's record will overwrite A's in login/temp.xml, and then A does its operations such as list all A's story/task, A's records will go wrong because of B's overwrite.
