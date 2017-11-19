@@ -1,6 +1,7 @@
 exports.index = function(req,res){
 
 //read user role and name from xml which are generated in login.js
+/*
 var fs = require('fs');				
 				var containerXml = '';
 				
@@ -18,10 +19,17 @@ var fs = require('fs');
 						if (err) return console.log(err);
 					var userrole = res.role.title.at(0).text();
 					var username = res.role.user.at(0).text();
-				console.log('req.headers.cookie = '+req.headers.cookie);
-				console.log('req.cookies.username = '+req.headers.cookie.username);
-				console.log('req.cookies.userrole = '+req.headers.cookie.userrole);
+*/
+//########################################################################################################################
+				
+				console.log(req.session);
+				var userrole = req.session.role;
+				var username = req.session.username;
 
+				console.log('username_fetch = '+username);
+				console.log('userrole_fetch = '+userrole);
+
+//##################################################################################################################
 var mysql = require('mysql');
 	var connection = mysql.createConnection({
 		host: 'localhost',
@@ -87,7 +95,7 @@ var mysql = require('mysql');
 
 	connection.end();
 
-	});//read role and username
-	});//read temp xml
+//	});//read role and username
+//	});//read temp xml
 res.sendfile('public/story.html');
 };
