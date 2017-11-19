@@ -25,7 +25,7 @@ var fs = require('fs');
 				console.log(req.session);
 				var userrole = req.session.role;
 				var username = req.session.username;
-
+				var direction = 'public/story_'+username+'.html'
 				console.log('username_fetch = '+username);
 				console.log('userrole_fetch = '+userrole);
 
@@ -82,12 +82,12 @@ var mysql = require('mysql');
 							
 
 				            var fs_body = require('fs');   
-				            fs_body.writeFile('public/story.html', listAll, function(err){
+				            fs_body.writeFile(direction, listAll, function(err){
 
 									if (err) {
 									return console.error(err);
 											}
-								console.log('public/story.html done');
+								console.log('story done');
 
 								});  
 
@@ -97,5 +97,9 @@ var mysql = require('mysql');
 
 //	});//read role and username
 //	});//read temp xml
-res.sendfile('public/story.html');
+// setTimeout is needed here to make we have adequate time to generate story page
+//res.sendfile(direction);
+setTimeout(function(){
+	res.sendfile(direction)
+},8000);
 };

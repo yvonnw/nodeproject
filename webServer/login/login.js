@@ -4,6 +4,7 @@ exports.index = function(req,res){
 	console.log('goto login.js')
     var username = req.body.username;
     var password = req.body.password;
+    var direction = 'public/home_'+username+'.html';
     
     console.log('req.body------------------------------');
 	console.log(req.body);
@@ -129,12 +130,12 @@ exports.index = function(req,res){
 						content+= htmlEnd;	
 
 						var fs_body = require('fs');
-						fs_body.writeFile('public/home.html', content, function(err){
+						fs_body.writeFile(direction, content, function(err){
 
 									if (err) {
 										return console.error(err);
 											}
-									console.log('public/home.html done');
+									console.log('home done');
 
 						});
 
@@ -149,8 +150,12 @@ exports.index = function(req,res){
 	};//else
 }); //check user
 connection.end();
-res.sendfile('public/home.html');
+// setTimeout is needed here to make we have adequate time to generate home page
+setTimeout(function(){
+	res.sendfile(direction)
+},8000);
 
+//res.sendfile('public/home_yv_po.html');
 
 
 } //module

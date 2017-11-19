@@ -10,6 +10,8 @@
 [2017_11_19]
 issue is fixed, session is used.
 
+setTimeout is needed to make we have adequate time to generate page.
+
 I am gonna move on tomorrow.
 
 
