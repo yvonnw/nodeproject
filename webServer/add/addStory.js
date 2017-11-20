@@ -9,7 +9,8 @@ exports.index = function(req,res){
     var addStoryD = req.body.addStoryDeadline;
 
 	console.log(req.body);
-    
+    var po = req.session.username;
+    console.log('re.session.username_add story = '+po);
 
     var mysql = require('mysql');
 	var connection = mysql.createConnection({
@@ -24,47 +25,26 @@ exports.index = function(req,res){
 	
 	//add story to db
 	
-	var addSSql = "insert into story(title, description, level, deadline, parent) values('"+addStoryTitle+"', '"+addStoryDes+"', '"+addStoryP+"', '"+addStoryD+"', '"+addStoryTitle+"')";
-
-	//var addSql = 'insert into story(owner, title) values("yv", "insert record from node")';
-	connection.query(addSSql, function(err, result){
-		if(err){
-			console.log('[story insert error] - ', err.message);
-			return;
-		}
-		console.log('------------------------story insert');
-
-	});
-
-
-
-	//add task to db
-
-	//get task value from post
+	
     var count = req.body.hiddenCount;
 
-    while (count>0){
+    while (count>=0){
     	// convert string to variable name
-    	var addTaskTitle = eval('req.body.tTitle'+count);
-    	var addTaskP = eval('req.body.tPriority'+count);
-    	var addTaskD = eval('req.body.tdeadline'+count);
-    	
-    	console.log(count);
-    	//console.log(addTaskP);
-    	console.log(eval(addTaskTitle)); // convert string to variable name
-    	
-
-    	//connection.connect();
-    	
-    	var addTSql = "insert into task(title, level, deadline, Parent) values('"+addTaskTitle+"', '"+addTaskP+"', '"+addTaskD+"', '"+addStoryTitle+"')";
-
-	//var addSql = 'insert into story(owner, title) values("yv", "insert record from node")';
+    	var sTitle = eval('req.body.sTitle'+count);
+    	var sPriority = eval('req.body.sPriority'+count);
+    	var sDeadline = eval('req.body.sDeadline'+count);
+    	var sDescription = eval('req.body.sDescription'+count);
+    	var sAssign2 = eval('req.body.sAssign2'+count);  	
+    	    	
+    	var addTSql = "insert into story(title, level, deadline, parent, description, owner, po, master) values('"+sTitle+"', '"+sPriority+"', '"+sDeadline+"', '"+addStoryTitle+"', '"+sDescription+"', '"+sAssign2+"', '"+po+"', '"+sAssign2+"')";
+	
 		connection.query(addTSql, function(err, result){
 		if(err){
-			console.log('[task insert error] - ', err.message);
+			console.log('[story insert error] - ', err.message);
+			res.send ('[story creation error] - ', err.message);
 			return;
 			}
-		console.log('------------------------task insert');
+		console.log('------------------------story insert');
 
 		
 
@@ -74,8 +54,9 @@ exports.index = function(req,res){
 
 };
 	connection.end();
-	
-	res.redirect('/');
+
+	var direction = 'home_'+po+'.html';	
+	res.redirect(direction);
 
 };
 

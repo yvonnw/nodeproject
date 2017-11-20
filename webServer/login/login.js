@@ -146,16 +146,14 @@ exports.index = function(req,res){
 			//res.sendfile('public/home.html');
 				
 		}); //container
+// setTimeout is needed here to make sure we have adequate time to generate home page
+		setTimeout(function(){
+			res.sendfile(direction)
+		},8000);
 
 	};//else
 }); //check user
 connection.end();
-// setTimeout is needed here to make we have adequate time to generate home page
-setTimeout(function(){
-	res.sendfile(direction)
-},8000);
-
-//res.sendfile('public/home_yv_po.html');
 
 
 } //module

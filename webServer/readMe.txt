@@ -5,6 +5,13 @@
 4. edit (public/search_edit_delete.html)
 5. delete (public/search_edit_delete.html)
 6. sign up (public/signUp.html)
+7. sign in - po search bar, list story, add story
+		   
+
+
+[2017_11_20]
+add story for po is done.
+
 
 
 [2017_11_19]

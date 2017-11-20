@@ -7,44 +7,50 @@
 var count = 0;
 
 function addstory(){
-
+console.log('i am in assStory.html');
   count = count+1;
   console.log(count);
   var obj = document.getElementById('form2');
   var newLine = document.createElement('br');
   
-  var newInput_tTitle = document.createElement("input");
-  newInput_tTitle.name =  'tTitle'+count;
-  newInput_tTitle.id = 'tTitle'+count;
-  newInput_tTitle.placeholder = 'Task Title';
-  obj.appendChild(newInput_tTitle);
+  var newInput_sTitle = document.createElement("input");
+  newInput_sTitle.name =  'sTitle'+count;
+  newInput_sTitle.id = 'sTitle'+count;
+  newInput_sTitle.placeholder = 'Story Title';
+  newInput_sTitle.required = 'required';
+  obj.appendChild(newInput_sTitle);
   
-  var newInput_tPriority = document.createElement("select");
-  //document.write('Task Priority');
-  newInput_tPriority.name = 'tPriority'+count;
-  newInput_tPriority.id = 'tPriority'+count;
+  var newInput_sPriority = document.createElement("select");  
+  newInput_sPriority.name = 'sPriority'+count;
+  newInput_sPriority.id = 'sPriority'+count;
   var opt = new Option('High');
-  newInput_tPriority.options.add(opt);
+  newInput_sPriority.options.add(opt);
   opt = new Option('Medium');
-  newInput_tPriority.options.add(opt);
+  newInput_sPriority.options.add(opt);
   opt = new Option('Low');
-  newInput_tPriority.options.add(opt);
-  obj.appendChild(newInput_tPriority);
+  newInput_sPriority.options.add(opt);
+  obj.appendChild(newInput_sPriority);
   
-  var newInput_tdeadline = document.createElement("input");
-  //document.write('Task Deadline');
-  newInput_tdeadline.name = 'tdeadline'+count;
-  newInput_tdeadline.id = 'tdeadline'+count;
-  newInput_tdeadline.placeholder = 'Task Deadline';
-  obj.appendChild(newInput_tdeadline);
+  var newInput_sDeadline = document.createElement("input");
+  newInput_sDeadline.name = 'sDeadline'+count;
+  newInput_sDeadline.id = 'sDeadline'+count;
+  newInput_sDeadline.placeholder = 'Story Deadline';
+  newInput_sDeadline.required = 'required';
+  obj.appendChild(newInput_sDeadline);
 
 
   var newInput_sDescription = document.createElement("input");
-  //document.write('Task Deadline');
   newInput_sDescription.name = 'sDescription'+count;
   newInput_sDescription.id = 'sDescription'+count;
   newInput_sDescription.placeholder = 'Story Description';
   obj.appendChild(newInput_sDescription);
+
+
+  var newInput_sAssign2 = document.createElement("input");
+  newInput_sAssign2.name = 'sAssign2'+count;
+  newInput_sAssign2.id = 'sAssign2'+count;
+  newInput_sAssign2.placeholder = 'Assign to';
+  obj.appendChild(newInput_sAssign2);
   obj.appendChild(newLine);
   obj.appendChild(newLine);
 
@@ -65,14 +71,15 @@ function addstory(){
 <p>&nbsp;</p>
 <form method="post" action="/addStory" name="form2" id="form2">
   
-<input id="addStoryTitle" type="text" name="addStoryTitle" placeholder="Story Title" />
-<select id="addStoryPriority" name="addStoryPriority">
+<input id="sTitle0" type="text" name="sTitle0" placeholder="Story Title" required/>
+<select id="sPriority0" name="sPriority0">
 <option value="high">High</option>
 <option value="medium">Medium</option>
 <option value="low">Low</option>
 </select>
-<input id="addStoryDeadline" type="text" name="addStoryDeadline" placeholder="Deadline e.g. 2017-10-18" />
-<input id="addStoryDes" name="addStoryDes" placeholder="Description">
+<input id="sDeadline0" type="text" name="sDeadline0" placeholder="Deadline e.g. 2017-10-18" required="required" />
+<input id="sDescription0" name="sDescription0" placeholder="Description">
+<input id="sAssign20" name="sAssign20" placeholder="Assign to">
 <p>&nbsp;</p>  
 <br>
 <input id="hiddenCount" type="hidden" name="hiddenCount"/>

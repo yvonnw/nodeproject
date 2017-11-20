@@ -120,7 +120,10 @@ var mysql = require('mysql');
 
 		});
 		//res.write(listAll);
-		res.sendfile('public/searchResult_final.html');
+		setTimeout(function(){
+			res.sendfile('public/searchResult_final.html')
+		},8000);
+		
 
 
 		});
