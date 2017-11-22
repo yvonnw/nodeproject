@@ -20,20 +20,55 @@ exports.index = function(req,res){
 
 	connection.connect();
 
-	
+	var goahead = '';
 	//add user to db
-	
-	var addUSql = "insert into user(username, password, mailbox, role) values('"+username+"', '"+password+"', '"+mailbox+"', '"+role+"')";
-	console.log('addUSql ='+addUSql);
-	
-	connection.query(addUSql, function(err, result){
+	var userQuery = "select * from user_query where username = '"+username+"'";
+	connection.query(userQuery, function(err, result){
 		if(err){
-			console.log('[user insert error] - ', err.message);
+			console.log('[user query error] - ', err.message);
 			return;
 		}
-		console.log('------------------------user insert');
+		if (result != ''){
+			res.redirect('signUp_again.html')
+			return;
+		}
+		if (result == ''){
+		goahead = 'yes';
+		console.log('goahead1 ='+goahead);		
+		}
+	//}); //user query
 
+	if (goahead == 'yes'){
+		console.log('goahead2 ='+goahead);
+
+		var mysql = require('mysql');
+	var connection = mysql.createConnection({
+		host: 'localhost',
+		user: 'root',
+		password: '123456',
+		database: 'agile'
 	});
+
+	connection.connect();
+	
+	var addUSql = "insert into user(username, password, mailbox, role) values('"+username+"', '"+password+"', '"+mailbox+"', '"+role+"')";
+			console.log('addUSql ='+addUSql);
+			
+			connection.query(addUSql, function(err, result){
+			if(err){
+				console.log('[user insert error] - ', err.message);
+				return;
+			}
+			console.log('------------------------user insert');
+			res.redirect('signin.html');
+			return;
+
+		});		
+
+	};	//if goahead
+
+	//}); //query
+	
 
 connection.end();
 }

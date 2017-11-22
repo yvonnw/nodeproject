@@ -5,8 +5,17 @@
 4. edit (public/search_edit_delete.html)
 5. delete (public/search_edit_delete.html)
 6. sign up (public/signUp.html)
-7. sign in - po search bar, list story, add story
+7. send mail
+8. sign in - po search bar, list story, add story
 		   
+
+
+[2017_11_22]
+Sending mail when po assigns story is done.
+
+I am working on an issue to avoid same username is registered when sign up. it doesn't seem to support to run more then one sql command on one table in one js, Error: Cannot enqueue Quit after invoking quit. I am trying to work it out.
+
+
 
 
 [2017_11_20]

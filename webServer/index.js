@@ -26,33 +26,37 @@ app.use(session({
 }));
 
 //##################################################
-
-//app.get('/', function(req,res){
-//	res.sendfile('public/signin.html');
-/*	
-	if (req.session.username){
-		console.log(req.session);
-		//res.send('welcome'+req.session.username+'again');
-		res.sendfile('public/home.html')
-		}
-	else {
-		req.session.username = 'index.js';
-		req.session.role = 'you';
-		res.end('sign in')
-		//res.sendfile('public/home.html')
-		}
-*/	
-//});
 /*
-app.get('/home.html', function(req,res){
-	//res.sendfile('public/home.html');
-	console.log(req.session.username);
-	res.send(req.session.username);
-	res.end();
-})
+var nodemailer = require('nodemailer');
+			var transporter = nodemailer.createTransport({
+				host: 'smtp.sina.com',//'smtp-mail.outlook.com',
+				secureConnection: true,
+				port: 465,//587,
+				auth: {					
+					user: 'mail_from_node@sina.com',
+					pass: '12345678',
+				}
+			})
+
+app.get('/send', function(req,res){
+	var mailOptions = {
+				from: 'mail_from_node@sina.com',//'mail_from_node@sohu.com',
+				to: 'shadowying_1107@sina.com, mail_from_node@sina.com',
+				subject: 'Wonderful day starts from jobs',
+				text: 'You have a job, please check.',
+			};
+			transporter.sendMail(mailOptions, function(err, info){
+				if (err){
+					console.log('send mail error'+err);
+					//res.send('send mail error'+err);
+					return;
+				}
+				console.log('send mail --------------  success');
+			})
+	
+});
 
 */
-
 
 //###################################################
 
