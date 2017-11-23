@@ -124,6 +124,10 @@ exports.index = function(req,res){
 				        if (create == 'story'){
 							content+="<div id='createStory'></div><script type='text/babel' src='createstory.js'></script>"
 				           }
+
+				         if (edit == 'story'){
+							content+="<div id='createStory'></div><script type='text/babel' src='createstory.js'></script>"
+				           }
 				        
 				        //content+="<input id='hiddenUsername' type='hidden' name='hiddenUsername' value='"+username+"'/>";
 				        //content+="<input id='hiddenrole' type='hidden' name='hiddenrole' value='"+userrole+"'/>";
@@ -142,14 +146,13 @@ exports.index = function(req,res){
 
 				
 		});//containxml
-
-			//res.sendfile('public/home.html');
 				
 		}); //container
-// setTimeout is needed here to make sure we have adequate time to generate home page
+// setTimeout is needed here to make sure we have adequate time to generate home page, TypeError: res.redirect/sendfile is not a function if move redirect/sendfile into writefile.
+
 		setTimeout(function(){
 			res.sendfile(direction)
-		},8000);
+		},3000);
 
 	};//else
 }); //check user

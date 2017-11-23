@@ -10,6 +10,15 @@
 		   
 
 
+[2017_11_23]
+issue for avoiding same name registered is fixed, I am inspired by an article, thanksgiving day, thanks for giving me.
+
+visual studio code is under installation, it tells 'waiting to install', but nothing seems to happen. i am still working on it.
+
+i am moving on edit story for po.
+
+
+
 [2017_11_22]
 Sending mail when po assigns story is done.
 

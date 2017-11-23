@@ -22,7 +22,7 @@ exports.index = function(req,res){
 
 	var goahead = '';
 	//add user to db
-	var userQuery = "select * from user_query where username = '"+username+"'";
+	var userQuery = "select * from user where username = '"+username+"'";
 	connection.query(userQuery, function(err, result){
 		if(err){
 			console.log('[user query error] - ', err.message);
@@ -33,25 +33,8 @@ exports.index = function(req,res){
 			return;
 		}
 		if (result == ''){
-		goahead = 'yes';
-		console.log('goahead1 ='+goahead);		
-		}
-	//}); //user query
-
-	if (goahead == 'yes'){
-		console.log('goahead2 ='+goahead);
-
-		var mysql = require('mysql');
-	var connection = mysql.createConnection({
-		host: 'localhost',
-		user: 'root',
-		password: '123456',
-		database: 'agile'
-	});
-
-	connection.connect();
-	
-	var addUSql = "insert into user(username, password, mailbox, role) values('"+username+"', '"+password+"', '"+mailbox+"', '"+role+"')";
+		console.log('goahead1 ='+goahead);
+		var addUSql = "insert into user(username, password, mailbox, role) values('"+username+"', '"+password+"', '"+mailbox+"', '"+role+"')";
 			console.log('addUSql ='+addUSql);
 			
 			connection.query(addUSql, function(err, result){
@@ -64,11 +47,12 @@ exports.index = function(req,res){
 			return;
 
 		});		
+		}
+		connection.end();
+	}); //user query
 
-	};	//if goahead
-
-	//}); //query
+	
+	
 	
 
-connection.end();
 }
