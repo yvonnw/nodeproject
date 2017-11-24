@@ -82,12 +82,6 @@ app.post('/delete', deleterecord.index);
 var registerUser = require('./register/register');
 app.post('/register', registerUser.index);
 
-
-/*
-var home = require('./home/home');
-app.post('/home', home.index);
-app.get('/home', home.index);
-*/
 var addStory = require('./add/addStory');
 app.post('/addStory', addStory.index);
 
@@ -98,6 +92,12 @@ app.get('/fetchStoryAndTask', fetchStoryAndTask.index);
 
 var fetchStory = require('./fetch/fetchStory');
 app.get('/fetchStory', fetchStory.index);
+
+var editStory = require('./Search/editStory');
+app.get('/editStory', editStory.index);
+
+var delStory = require('./Search/delStory');
+app.get('/delStory', delStory.index);
 
 /*
 app.post("/addStory", function(req,res){

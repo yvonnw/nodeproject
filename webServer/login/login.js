@@ -89,7 +89,7 @@ exports.index = function(req,res){
         				if (userrole == 'master'){m=1};
         				if (userrole == 'team member'){m=2};
         				console.log('m = '+m);
-        				var features = ['search','list','create','edit'] 
+        				var features = ['search','list','create','edit','del'] 
 
         				for (var i in features){
                 			switch (features[i]){
@@ -101,13 +101,16 @@ exports.index = function(req,res){
                     			break;
                     			case 'edit': var edit = res.role.edit.at(m).text();
                     			break;
+                    			case 'del': var del = res.role.del.at(m).text();
+                    			break;
                 						}
 
             			}
 			            console.log('search = '+search);
 			            console.log('list = '+list);
 			            console.log('create = '+create);
-			            console.log('edit = '+edit);     
+			            console.log('edit = '+edit);  
+			            console.log('del = '+del);   
 
 			            var content = "<!DOCTYPE html><html><head><meta charset='UTF-8'/><title>Home</title>"+
     			  					  "<script src='https://cdn.bootcss.com/react/15.4.2/react.min.js'></script>"+
@@ -125,8 +128,11 @@ exports.index = function(req,res){
 							content+="<div id='createStory'></div><script type='text/babel' src='createstory.js'></script>"
 				           }
 
-				         if (edit == 'story'){
-							content+="<div id='createStory'></div><script type='text/babel' src='createstory.js'></script>"
+				        if (edit == 'story'){
+							content+="<div id='editStory'></div><script type='text/babel' src='editstory.js'></script>"
+				           }
+				        if (del == 'story'){
+							content+="<div id='delStory'></div><script type='text/babel' src='delstory.js'></script>"
 				           }
 				        
 				        //content+="<input id='hiddenUsername' type='hidden' name='hiddenUsername' value='"+username+"'/>";

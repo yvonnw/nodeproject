@@ -5,6 +5,7 @@
 		<list>story</list>
 		<create>story</create>
 		<edit>story</edit>
+		<del>story</del>
 	
 	
 		<title>master</title>
@@ -12,11 +13,13 @@
 		<list>task</list>
 		<create>task</create>
 		<edit>task</edit>
-	
+		<del>task</del>
 	
 		<title>team member</title>
 		<search>search bar</search>
 		<list>task</list>
+		<create></create>
 		<edit>task</edit>
+		<del></del>
 	
 </role>

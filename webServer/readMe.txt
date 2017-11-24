@@ -6,8 +6,16 @@
 5. delete (public/search_edit_delete.html)
 6. sign up (public/signUp.html)
 7. send mail
-8. sign in - po search bar, list story, add story
+8. sign in - po search bar, list story, add story, edit story
 		   
+
+
+[2017_11_24]
+edit story for po is done
+
+visual studio code is ready
+
+i am working on the feedback to user after delete.
 
 
 [2017_11_23]
