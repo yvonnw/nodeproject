@@ -86,7 +86,18 @@ $(document).ready(function(){
 		$.ajax({
 	 		type: 'POST',
 	 		url: '/delete',
-	 		data:'deleteTitle='+deleteTitle+'&category='+category
+	 		data:'deleteTitle='+deleteTitle+'&category='+category,
+	 		//##################################################################
+	 		success: function(status){
+	 			//if (status == 'success'){
+	 				alert(status);
+	 			//}
+	 		}
+	 		error: function(status){
+	 			alert('error:'+status);
+	 		}
+	 		
+	 		//##############################################################
 	 	}); 
 	});
 });

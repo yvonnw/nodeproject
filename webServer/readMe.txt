@@ -10,6 +10,12 @@
 		   
 
 
+[2017_11_25]
+ajax is supposed to receive the retrun value from delete.js, 'ok' is returned in firefox, but ajax seems not receive it.
+I am still working on feedback after delete.
+
+
+
 [2017_11_24]
 edit story for po is done
 

@@ -5,6 +5,7 @@ exports.index = function(req,res){
 	console.log(req.body);
 	var category = req.body.category;
 	var deleteTitle = req.body.deleteTitle;
+	
 
 	var mysql = require('mysql');
 	var connection = mysql.createConnection({
@@ -27,8 +28,9 @@ exports.index = function(req,res){
 			return;
 					};
 			console.log('delete story is done');
+			res.send(200);
 			  });
-
+	
 		};
 
 	if (category == 'task'){
@@ -42,8 +44,9 @@ exports.index = function(req,res){
 					};
 			console.log('delete task is done');
 			  });
+	
 		};
-
+		
 	connection.end();
 
 }

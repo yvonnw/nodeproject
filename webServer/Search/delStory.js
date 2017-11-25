@@ -90,7 +90,7 @@ var mysql = require('mysql');
 			if (err) {
 			return console.error(err);
 					}
-		console.log('searchResult_final done');
+		console.log('storyResult_final done');
 
 		});
 
