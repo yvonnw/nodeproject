@@ -10,7 +10,7 @@
 	
 		<title>master</title>
 		<search>search bar</search>
-		<list>task</list>
+		<list>story and task</list>
 		<create>task</create>
 		<edit>task</edit>
 		<del>task</del>

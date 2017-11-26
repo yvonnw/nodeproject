@@ -86,21 +86,24 @@ $(document).ready(function(){
 		$.ajax({
 	 		type: 'POST',
 	 		url: '/delete',
-	 		data:'deleteTitle='+deleteTitle+'&category='+category,	
+	 		data:'deleteTitle='+deleteTitle+'&category='+category,
 	 		//##################################################################
-	 		function(response){
+	 		success: function(data, status){
+	 			console.log('i am in success');
+	 				alert('Delete is done'); 
+	 				window.history.go(-1); //back to home page				
 	 			
-	 				alert(response);
-	 				console.log('response = '+response);
-	 			
+	 		},
+	 		error: function(data, err){
+	 			console.log('i am in error');
+	 				alert('Fail to delete, please try again');
+	 				window.history.go(-1); //back to home page	
 	 		}
 	 		
-	 		
-	 		//############################################################## 		
+	 		//##############################################################
 	 	}); 
-	 	
 	});
 });
 
 </script>
-<title>Search Result</title></head><body><table align='left' border='10' cellpadding='10'><caption>Search Result</caption><thead><tr><th><div align='left'>Title</div></th><th><div align='left'>Status</div></th><th><div align='left'>Priority</div></th><th><div align='left'>Owner</div></th><th>Deadline</div></th><th><div align='left'>Description</div></th><th><div align='left'>Delete</div></th></tr><tr><th bgcolor='#BEBEBE'>s4</th><td bgcolor='#BEBEBE'>open</td><td bgcolor='#BEBEBE'>high</td><td bgcolor='#BEBEBE'>yv_master</td><td bgcolor='#BEBEBE'>2017-11-20</td><td bgcolor='#BEBEBE'></td><th bgcolor='#BEBEBE'><button bgcolor='#BEBEBE'type='button' id='delete'>Delete</button></th></tr><tr><th bgcolor='#BEBEBE'>mail</th><td bgcolor='#BEBEBE'>open</td><td bgcolor='#BEBEBE'>high</td><td bgcolor='#BEBEBE'>yv_master</td><td bgcolor='#BEBEBE'>2017-11-20</td><td bgcolor='#BEBEBE'></td><th bgcolor='#BEBEBE'><button bgcolor='#BEBEBE'type='button' id='delete'>Delete</button></th></tr><tr><th bgcolor='#BEBEBE'>m2</th><td bgcolor='#BEBEBE'>open</td><td bgcolor='#BEBEBE'>high</td><td bgcolor='#BEBEBE'>yv_master</td><td bgcolor='#BEBEBE'>2017-11-20</td><td bgcolor='#BEBEBE'></td><th bgcolor='#BEBEBE'><button bgcolor='#BEBEBE'type='button' id='delete'>Delete</button></th></tr><tr><th bgcolor='#BEBEBE'>m3</th><td bgcolor='#BEBEBE'>open</td><td bgcolor='#BEBEBE'>high</td><td bgcolor='#BEBEBE'>yv_master</td><td bgcolor='#BEBEBE'>2017-11-20</td><td bgcolor='#BEBEBE'></td><th bgcolor='#BEBEBE'><button bgcolor='#BEBEBE'type='button' id='delete'>Delete</button></th></tr><tr><th bgcolor='#BEBEBE'>m4</th><td bgcolor='#BEBEBE'>open</td><td bgcolor='#BEBEBE'>high</td><td bgcolor='#BEBEBE'>yv_master</td><td bgcolor='#BEBEBE'>2017-11-20</td><td bgcolor='#BEBEBE'></td><th bgcolor='#BEBEBE'><button bgcolor='#BEBEBE'type='button' id='delete'>Delete</button></th></tr></thead><p><a href='home_yv_po.html'>Back to my home</a></p></body></html>
+<title>Search Result</title></head><body><table align='left' border='10' cellpadding='10'><caption>Search Result</caption><thead><tr><th><div align='left'>Title</div></th><th><div align='left'>Status</div></th><th><div align='left'>Priority</div></th><th><div align='left'>Owner</div></th><th>Deadline</div></th><th><div align='left'>Description</div></th><th><div align='left'>Delete</div></th></tr><tr><th bgcolor='#BEBEBE'>5</th><td bgcolor='#BEBEBE'>open</td><td bgcolor='#BEBEBE'>High</td><td bgcolor='#BEBEBE'>yv_master</td><td bgcolor='#BEBEBE'>2017-11-20</td><td bgcolor='#BEBEBE'></td><th bgcolor='#BEBEBE'><button bgcolor='#BEBEBE'type='button' id='delete'>Delete</button></th></tr><tr><th bgcolor='#BEBEBE'>4</th><td bgcolor='#BEBEBE'>open</td><td bgcolor='#BEBEBE'>High</td><td bgcolor='#BEBEBE'>yv_master</td><td bgcolor='#BEBEBE'>2017-11-20</td><td bgcolor='#BEBEBE'></td><th bgcolor='#BEBEBE'><button bgcolor='#BEBEBE'type='button' id='delete'>Delete</button></th></tr><tr><th bgcolor='#BEBEBE'>3</th><td bgcolor='#BEBEBE'>open</td><td bgcolor='#BEBEBE'>High</td><td bgcolor='#BEBEBE'>yv_master</td><td bgcolor='#BEBEBE'>2017-11-20</td><td bgcolor='#BEBEBE'></td><th bgcolor='#BEBEBE'><button bgcolor='#BEBEBE'type='button' id='delete'>Delete</button></th></tr><tr><th bgcolor='#BEBEBE'>2</th><td bgcolor='#BEBEBE'>open</td><td bgcolor='#BEBEBE'>High</td><td bgcolor='#BEBEBE'>yv_master</td><td bgcolor='#BEBEBE'>2017-11-20</td><td bgcolor='#BEBEBE'></td><th bgcolor='#BEBEBE'><button bgcolor='#BEBEBE'type='button' id='delete'>Delete</button></th></tr><tr><th bgcolor='#BEBEBE'>1</th><td bgcolor='#BEBEBE'>open</td><td bgcolor='#BEBEBE'>high</td><td bgcolor='#BEBEBE'>yv_master</td><td bgcolor='#BEBEBE'>2017-11-20</td><td bgcolor='#BEBEBE'></td><th bgcolor='#BEBEBE'><button bgcolor='#BEBEBE'type='button' id='delete'>Delete</button></th></tr></thead><p><a href='home_yv_po.html'>Back to my home</a></p></body></html>

@@ -43,7 +43,7 @@ exports.index = function(req,res){
 			console.log('req.headers.cookie = '+req.headers.cookie);
 			req.session.username = username; //////it needs to remove after log out req.session.username =  null
 			req.session.save();
-			console.log('req.session.username = '+req.session.username);
+			console.log('req.session.username = '+req.session.username);			
 			req.session.role = result[0].role; // req.session.role = null
 			req.session.save(); /////following pages cannot get username and role without saving, it is so that i spent so many hours to figure out why data always lose
 			console.log('req.session.role = '+req.session.role);
@@ -123,7 +123,7 @@ exports.index = function(req,res){
 						};
 						if (list == 'story'){
 							content+="<div id='listStory'></div><script type='text/babel' src='liststory.js'></script>"
-				           }//if story
+				           }
 				        if (create == 'story'){
 							content+="<div id='createStory'></div><script type='text/babel' src='createstory.js'></script>"
 				           }
@@ -133,6 +133,9 @@ exports.index = function(req,res){
 				           }
 				        if (del == 'story'){
 							content+="<div id='delStory'></div><script type='text/babel' src='delstory.js'></script>"
+				           }
+				        if (list == 'story and task'){
+							content+="<div id='listStoryTask'></div><script type='text/babel' src='liststorytask.js'></script>"
 				           }
 				        
 				        //content+="<input id='hiddenUsername' type='hidden' name='hiddenUsername' value='"+username+"'/>";

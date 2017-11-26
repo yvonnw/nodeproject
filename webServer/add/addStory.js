@@ -3,11 +3,12 @@
 // module
 exports.index = function(req,res){
 	//get story value from post
+	/*
     var addStoryTitle = req.body.addStoryTitle;
     var addStoryDes = req.body.addStoryDes;
     var addStoryP = req.body.addStoryPriority;
     var addStoryD = req.body.addStoryDeadline;
-
+*/
 	console.log(req.body);
     var po = req.session.username;
     console.log('re.session.username_add story = '+po);
@@ -39,7 +40,7 @@ exports.index = function(req,res){
     	var sDescription = eval('req.body.sDescription'+count);
     	var sAssign2 = eval('req.body.sAssign2'+count);  	
     	    	
-    	var addTSql = "insert into story(title, level, deadline, parent, description, owner, po, master) values('"+sTitle+"', '"+sPriority+"', '"+sDeadline+"', '"+addStoryTitle+"', '"+sDescription+"', '"+sAssign2+"', '"+po+"', '"+sAssign2+"')";
+    	var addTSql = "insert into story(title, level, deadline, parent, description, owner, po, master) values('"+sTitle+"', '"+sPriority+"', '"+sDeadline+"', '"+sTitle+"', '"+sDescription+"', '"+sAssign2+"', '"+po+"', '"+sAssign2+"')";
 	
 		connection.query(addTSql, function(err, result){
 		if(err){

@@ -6,8 +6,16 @@
 5. delete (public/search_edit_delete.html)
 6. sign up (public/signUp.html)
 7. send mail
-8. sign in - po search bar, list story, add story, edit story
+8. sign in - po search bar, list story, add story, edit story, delete story
+		   - master search bar, list story and task
 		   
+
+
+[2017_11_26]
+feedback after delete is done.
+
+list story and task for master is done.
+
 
 
 [2017_11_25]

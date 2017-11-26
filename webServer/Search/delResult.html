@@ -88,13 +88,16 @@ $(document).ready(function(){
 	 		url: '/delete',
 	 		data:'deleteTitle='+deleteTitle+'&category='+category,
 	 		//##################################################################
-	 		success: function(status){
-	 			//if (status == 'success'){
-	 				alert(status);
-	 			//}
-	 		}
-	 		error: function(status){
-	 			alert('error:'+status);
+	 		success: function(data, status){
+	 			console.log('i am in success');
+	 				alert('Delete is done'); 
+	 				window.history.go(-1); //back to home page				
+	 			
+	 		},
+	 		error: function(data, err){
+	 			console.log('i am in error');
+	 				alert('Fail to delete, please try again');
+	 				window.history.go(-1); //back to home page	
 	 		}
 	 		
 	 		//##############################################################

@@ -53,7 +53,7 @@ var mysql = require('mysql');
 							//console.log('------------------------story and task display');
 							
 							var old = '';
-							var listAll = "<table align='left' border='10' cellpadding='10'><caption>Story And Task List</caption><thead><tr><th><div align='left'>Title</div></th><th><div align='left'>Status</div></th><th><div align='left'>Priority</div></th>"+
+							var listAll = "<table align='left' border='10' cellpadding='10'><caption>Story List</caption><thead><tr><th><div align='left'>Title</div></th><th><div align='left'>Status</div></th><th><div align='left'>Priority</div></th>"+
 
 					                           "<th><div align='left'>Owner</div></th><th>Deadline</div></th><th><div align='left'>Description</div></th></tr>";
 		
@@ -101,5 +101,5 @@ var mysql = require('mysql');
 //res.sendfile(direction);
 setTimeout(function(){
 	res.sendfile(direction)
-},8000);
+},5000);
 };

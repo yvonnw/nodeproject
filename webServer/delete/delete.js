@@ -25,6 +25,7 @@ exports.index = function(req,res){
 			connection.query(deleteSql_s, function(err, result){
 			if(err){
 			console.log('[delete error_story] - ', err.message);
+			res.send(500);
 			return;
 					};
 			console.log('delete story is done');
@@ -40,9 +41,11 @@ exports.index = function(req,res){
 			connection.query(deleteSql_t, function(err, result){
 			if(err){
 			console.log('[delete error_task] - ', err.message);
+			res.send(500);
 			return;
 					};
 			console.log('delete task is done');
+			res.send(200);
 			  });
 	
 		};

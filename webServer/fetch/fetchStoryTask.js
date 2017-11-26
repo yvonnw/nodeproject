@@ -1,5 +1,9 @@
 exports.index = function(req,res){
 
+var username = req.session.username;
+var role = req.session.role;
+var direction_home = 'home_'+username+'.html';
+var direction = 'public/storytask_'+username+'.html'
 
 var mysql = require('mysql');
 	var connection = mysql.createConnection({
@@ -44,7 +48,7 @@ var mysql = require('mysql');
 
 	//fetch story and task from db	
 	
-	displaySql = "select * from story as s left join task t on s.parent=t.tparent";
+	displaySql = "select * from story as s left join task t on s.parent=t.tparent where s.owner='"+username+"' and s.status != 'closed'";
 	
 	connection.query(displaySql, function(err, result){
 		if(err){
@@ -104,9 +108,24 @@ var mysql = require('mysql');
 
 		};
 
-		listAll += "</thead></table>";
+		listAll += "</thead>"+
+					"<p><a href='"+direction_home+"'>Back to my home</a></p>"+
+				    "</table>";
 
-		res.write(listAll);
+		var fs_body = require('fs');   
+		fs_body.writeFile(direction, listAll, function(err){
+
+				if (err) {
+					return console.error(err);
+											}
+				console.log('story and task done');
+
+								});  
+
+
+		setTimeout(function(){
+			res.sendfile(direction)
+		},5000);
 
 		});
 
