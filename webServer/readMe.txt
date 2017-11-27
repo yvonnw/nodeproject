@@ -11,6 +11,10 @@
 		   
 
 
+[2017_11_27]
+i am working on creating story and making sure that newly created story can be related with it story.
+
+
 [2017_11_26]
 feedback after delete is done.
 

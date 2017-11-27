@@ -85,10 +85,16 @@ app.post('/register', registerUser.index);
 var addStory = require('./add/addStory');
 app.post('/addStory', addStory.index);
 
+var addTask = require('./add/addTask');
+app.post('/addTask', addTask.index);
+
 
 //use module to route get
 var fetchStoryAndTask = require('./fetch/fetchStoryTask');
 app.get('/fetchStoryAndTask', fetchStoryAndTask.index);
+
+var createTask = require('./add/fetchStoryTask');
+app.get('/createTask', createTask.index);
 
 var fetchStory = require('./fetch/fetchStory');
 app.get('/fetchStory', fetchStory.index);

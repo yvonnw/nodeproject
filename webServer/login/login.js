@@ -123,20 +123,23 @@ exports.index = function(req,res){
 						};
 						if (list == 'story'){
 							content+="<div id='listStory'></div><script type='text/babel' src='liststory.js'></script>"
-				           }
+				           };
 				        if (create == 'story'){
 							content+="<div id='createStory'></div><script type='text/babel' src='createstory.js'></script>"
-				           }
+				           };
 
 				        if (edit == 'story'){
 							content+="<div id='editStory'></div><script type='text/babel' src='editstory.js'></script>"
-				           }
+				           };
 				        if (del == 'story'){
 							content+="<div id='delStory'></div><script type='text/babel' src='delstory.js'></script>"
-				           }
+				           };
 				        if (list == 'story and task'){
 							content+="<div id='listStoryTask'></div><script type='text/babel' src='liststorytask.js'></script>"
-				           }
+				           };
+				        if (create == 'task'){
+							content+="<div id='createTask'></div><script type='text/babel' src='createtask.js'></script>"
+				           };
 				        
 				        //content+="<input id='hiddenUsername' type='hidden' name='hiddenUsername' value='"+username+"'/>";
 				        //content+="<input id='hiddenrole' type='hidden' name='hiddenrole' value='"+userrole+"'/>";
