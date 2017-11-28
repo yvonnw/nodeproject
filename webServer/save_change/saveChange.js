@@ -91,6 +91,9 @@ exports.index = function(req,res){
 		case 'deadline':
 			updateSql_t = "update task set tdeadline='"+changedValue+"' where ttitle='"+changedTitle+"'";				
 			break;
+		case 'description':
+			updateSql_t = "update task set tdescription='"+changedValue+"' where ttitle='"+changedTitle+"'";				
+			break;
 		
 		};
 

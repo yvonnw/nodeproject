@@ -88,6 +88,9 @@ app.post('/addStory', addStory.index);
 var addTask = require('./add/addTask');
 app.post('/addTask', addTask.index);
 
+var addT_storyTitle = require('./add/addT_storyTitle');
+app.post('/addT_storyTitle', addT_storyTitle.index);
+
 
 //use module to route get
 var fetchStoryAndTask = require('./fetch/fetchStoryTask');
@@ -101,6 +104,9 @@ app.get('/fetchStory', fetchStory.index);
 
 var editStory = require('./Search/editStory');
 app.get('/editStory', editStory.index);
+
+var editTask = require('./Search/editTask');
+app.get('/editTask', editTask.index);
 
 var delStory = require('./Search/delStory');
 app.get('/delStory', delStory.index);

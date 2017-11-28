@@ -140,6 +140,9 @@ exports.index = function(req,res){
 				        if (create == 'task'){
 							content+="<div id='createTask'></div><script type='text/babel' src='createtask.js'></script>"
 				           };
+				        if (edit == 'task'){
+							content+="<div id='editTask'></div><script type='text/babel' src='edittask.js'></script>"
+				           };
 				        
 				        //content+="<input id='hiddenUsername' type='hidden' name='hiddenUsername' value='"+username+"'/>";
 				        //content+="<input id='hiddenrole' type='hidden' name='hiddenrole' value='"+userrole+"'/>";

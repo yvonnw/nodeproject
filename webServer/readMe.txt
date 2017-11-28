@@ -7,12 +7,22 @@
 6. sign up (public/signUp.html)
 7. send mail
 8. sign in - po search bar, list story, add story, edit story, delete story
-		   - master search bar, list story and task
+		   - master search bar, list story and task, create task, edit task
 		   
+
+[2017_11_28]
+creating task is done
+
+edit task is done
+
+fix one issue that more than 2 groups of same story with differnet tasks are displayed if user creates tasks for same story at separate time. index is created on table task.
+
+i am gonna work on delete task tomorrow.
+
 
 
 [2017_11_27]
-i am working on creating story and making sure that newly created story can be related with it story.
+i am working on creating task and making sure that newly created story can be related with it story.
 
 
 [2017_11_26]

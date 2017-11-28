@@ -33,10 +33,16 @@ function addtask(){
   
   var newInput_tdeadline = document.createElement("input");
   //document.write('Task Deadline');
-  newInput_tdeadline.name = 'tdeadline'+count;
-  newInput_tdeadline.id = 'tdeadline'+count;
+  newInput_tdeadline.name = 'tDeadline'+count;
+  newInput_tdeadline.id = 'tDeadline'+count;
   newInput_tdeadline.placeholder = 'Task Deadline';
   obj.appendChild(newInput_tdeadline);
+
+  var newInput_tDes = document.createElement("input");
+  newInput_tDes.name =  'tDescription'+count;
+  newInput_tDes.id = 'tDescription'+count;
+  newInput_tDes.placeholder = 'Description';
+  obj.appendChild(newInput_tDes);
   obj.appendChild(newLine);
   obj.appendChild(newLine);
 
@@ -48,39 +54,28 @@ function addtask(){
 
 
 
-
-<title>Add Story and Task</title>
+<title>Create Task</title>
 </head>
 
 <body>
-<p><strong>AddStory and Tasks:</strong></p>
+<p><strong>Create Task:</strong></p>
 <p>&nbsp;</p>
-<form method="post" action="/addStoryAndTask" name="form2" id="form2">
-  <label>storyTitle
-  <input id="addStoryTitle" type="text" name="addStoryTitle" />
-  </label>
-  <p>
-    <label>Description
-    <textarea id="addStoryDes" name="addStoryDes"></textarea>
-    </label>
-  </p>
-  <p>
-    <label>Priority
-    <select id="addStoryPriority" name="addStoryPriority">
+<form method="post" action="/addTask" name="form2" id="form2">
+  
+<input id="tTitle0" type="text" name="tTitle0" placeholder="Task Title" required/>
+<select id="tPriority0" name="tPriority0">
 <option value="high">High</option>
 <option value="medium">Medium</option>
 <option value="low">Low</option>
 </select>
-    </label>
-  </p>
-  <p>
-    <label>Deadline
-    <input id="addStoryDeadline" type="text" name="addStoryDeadline" />
-    </label>
-  e.g. 2017-10-18</p>
-  <input id="hiddenCount" type="hidden" name="hiddenCount"/>
-  <input id="addT" type="button" value="Add Task", onclick="addtask()"/>
-  <input id="submitS" type="submit" value="Submit"/>
+<input id="tDeadline0" type="text" name="tDeadline0" placeholder="Deadline e.g. 2017-10-18" required="required" />
+<input id="tDescription0" name="tDescription0" placeholder="Description">
+
+<p>&nbsp;</p>  
+<br>
+<input id="hiddenCount" type="hidden" name="hiddenCount"/>
+<input id="addM" type="button" value="Create More", onclick="addtask()"/>
+<input id="submitS" type="submit" value="Submit"/>
   
   <p>&nbsp;</p>  
 <br>

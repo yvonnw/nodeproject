@@ -70,10 +70,10 @@ var mysql = require('mysql');
 		
 
 		
-		var old = '';
+		var old = ''; // old can only make sure that task will be displayed once, index is created on table task to make sure that story will be displayed once when master create tasks for same story at separate time.
 		var listAll = "<table align='left' border='10' cellpadding='10'><caption>Story And Task List</caption><thead><tr><th><div align='left'>Title</div></th><th><div align='left'>Status</div></th><th><div align='left'>Priority</div></th>"+
 
-                           "<th><div align='left'>Owner</div></th><th>Deadline</div></th><th><div align='left'>Description</div></th></tr>";
+                           "<th><div align='left'>Owner</div></th><th><div align='left'>Deadline</div></th><th><div align='left'>Description</div></th><th><div align='left'>Add task</div></th></tr>";
 		//var listAll = "<table align='left' border='10'><thead><tr><th><div align='left'>Title</div></th><th><div align='left'>Priority</div></th>"+
 
          //                  "<th><div align='left'>Owner</div></th><th>Deadline</div></th><th><div align='left'>Description</div></th></tr>";
@@ -96,7 +96,7 @@ var mysql = require('mysql');
 
                          "<td bgcolor='#BEBEBE'>" + result[i].description + "</td>" +
                          
-  						 "<td bgcolor='#BEBEBE'>"+"<input id='addT' type='button' value='Add Task' onclick='addtask()'/>"+"</td>" +
+  						 "<td bgcolor='#BEBEBE'>"+"<button bgcolor='#BEBEBE'type='button' id='addT'>Add task</button>"+"</td>" +
   						 
                          "</tr>"
                          
@@ -114,6 +114,8 @@ var mysql = require('mysql');
                          "<td>" + result[i].towner + "</td>"+
 
                          "<td>" + result[i].tdeadline + "</td>"+
+
+                         "<td>" + result[i].tdescription + "</td>"+
 
                          "</tr>";    
             };

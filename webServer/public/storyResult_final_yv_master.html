@@ -1,0 +1,94 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'><head><meta http-equiv='Content-Type' content='text/html; charset=gb2312'/>
+<script type='text/javascript' src='jquery-3.2.1.min.js'></script>
+<script>
+$(document).ready(function(){	
+	//$("#editS").click(function(){
+	$("table td").click(function(){
+		oldV=$(this).text();
+		console.log('goto edit');
+		//get the title of the recored that is about to change
+		console.log($(this).siblings('th:eq(0)').text());
+		var changedTitle = $(this).siblings('th:eq(0)').text();
+		if ($(this).attr('bgcolor') == '#BEBEBE'){
+			console.log('this is a story');
+			var category = 'story';
+		} 
+		else {
+			console.log('this is a task');
+			var category = 'task';
+		}
+
+		//get the field that is about to changed
+		//console.log($(this).siblings());
+		//console.log($(this).prevUntil('th:eq(0)'));
+		//console.log($(this).prevUntil('th:eq(0)').length);
+		var prevLength = $(this).prevUntil('th:eq(0)').length;
+		var field = '';
+		switch(prevLength)
+		{
+
+		case 3:
+			field = 'owner';
+			break;
+		case 2:
+			field = 'priority';
+			break;
+		case 1:
+			field = 'status';
+			break;
+		case 4:
+			field = 'deadline';
+			break;
+		case 5:
+			field = 'description';
+			break;
+		};
+		console.log(field);
+		//document.getElementById('hiddenField').value = field;
+
+	  $(this).addClass('input').html('<input id="changed" name="changed" value="'+$(this).text()+'"/>').find('input').focus().blur(function(){	  
+	 	console.log($(this).val());	 	
+	 	//document.getElementById('hiddenvalue').value = $(this).val();
+	 	var changedValue = $(this).val();
+	 	console.log('changedValue='+changedValue);
+	 	//console.log('hiddenvalue='+document.getElementById('hiddenvalue').value);	
+
+	 	$.ajax({
+	 		type: 'POST',
+	 		url: '/saveChange',
+	 		data:'changedTitle='+changedTitle+'&changedField='+field+'&changedValue='+changedValue+'&category='+category
+	 	}); 
+
+	  });
+
+	});
+
+	$("table button").click(function(){
+		console.log('goto delete');
+		console.log('parent siblings = '+$(this).parents('th').siblings());
+		//console.log($(this).prevUntil('th:eq(0)'));
+		console.log('deleteTitle ='+$(this).parents('th').siblings('th:eq(0)').text());
+		var deleteTitle = $(this).parents('th').siblings('th:eq(0)').text();
+		console.log('deleteTitle ='+deleteTitle);
+		if ($(this).attr('bgcolor') == '#BEBEBE'){
+			console.log('this is a story');
+			var category = 'story';
+		} 
+		else {
+			console.log('this is a task');
+			var category = 'task';
+		}
+
+
+		
+		$.ajax({
+	 		type: 'POST',
+	 		url: '/delete',
+	 		data:'deleteTitle='+deleteTitle+'&category='+category
+	 	}); 
+	});
+});
+
+</script>
+<title>Search Result</title></head><body><table align='left' border='10' cellpadding='10'><caption>Search Result</caption><thead><tr><th><div align='left'>Title</div></th><th><div align='left'>Status</div></th><th><div align='left'>Priority</div></th><th><div align='left'>Owner</div></th><th>Deadline</div></th><th><div align='left'>Description</div></th></tr><tr><th bgcolor='#BEBEBE'>4</th><th bgcolor='#BEBEBE'>open</th><th bgcolor='#BEBEBE'>High</th><th bgcolor='#BEBEBE'>yv_master</th><th bgcolor='#BEBEBE'>2017-11-20</th><th bgcolor='#BEBEBE'>4</th></tr><tr><th>task2</th><td>open</td><td>High</td><td>null</td><td>2017-11-20</td><td>null</td></tr><tr><th>task3</th><td>open</td><td>High</td><td>null</td><td>2017-11-20</td><td>3</td></tr><tr><th>task2</th><td>open</td><td>High</td><td>null</td><td>2017-11-20</td><td>2</td></tr><tr><th>task1</th><td>open</td><td>undefined</td><td>null</td><td>undefined</td><td>undefined</td></tr><tr><th>t2</th><td>open</td><td>High</td><td>null</td><td>2017-11-20</td><td>2</td></tr><tr><th>t1</th><td>open</td><td>undefined</td><td>null</td><td>undefined</td><td>undefined</td></tr><tr><th>111111111111</th><td>open</td><td>undefined</td><td>null</td><td>undefined</td><td>undefined</td></tr><tr><th>tt2</th><td>open</td><td>High</td><td>null</td><td>2017-11-28</td><td>tt2</td></tr><tr><th>tt1</th><td>open</td><td>high</td><td>null</td><td>undefined</td><td>tt1</td></tr><tr><th>2 of 4</th><td>open</td><td>High</td><td>null</td><td>2017-11-28</td><td>2</td></tr><tr><th>1 of 4</th><td>open</td><td>high</td><td>null</td><td>2017-11-28</td><td>1</td></tr><tr><th bgcolor='#BEBEBE'>3</th><th bgcolor='#BEBEBE'>open</th><th bgcolor='#BEBEBE'>High</th><th bgcolor='#BEBEBE'>yv_master</th><th bgcolor='#BEBEBE'>2017-11-20</th><th bgcolor='#BEBEBE'></th></tr><tr><th bgcolor='#BEBEBE'>2</th><th bgcolor='#BEBEBE'>open</th><th bgcolor='#BEBEBE'>High</th><th bgcolor='#BEBEBE'>yv_master</th><th bgcolor='#BEBEBE'>2017-11-20</th><th bgcolor='#BEBEBE'></th></tr><tr><th bgcolor='#BEBEBE'>1</th><th bgcolor='#BEBEBE'>open</th><th bgcolor='#BEBEBE'>high</th><th bgcolor='#BEBEBE'>yv_master</th><th bgcolor='#BEBEBE'>2017-11-20</th><th bgcolor='#BEBEBE'></th></tr><tr><th bgcolor='#BEBEBE'>q3</th><th bgcolor='#BEBEBE'>open</th><th bgcolor='#BEBEBE'>High</th><th bgcolor='#BEBEBE'>yv_master</th><th bgcolor='#BEBEBE'>2017-11-20</th><th bgcolor='#BEBEBE'></th></tr><tr><th>3 of 3</th><td>open</td><td>High</td><td>null</td><td>2017-11-20</td><td>3</td></tr><tr><th>2 of 3</th><td>open</td><td>High</td><td>null</td><td>2017-11-28</td><td>2</td></tr><tr><th>1 of 3</th><td>open</td><td>high</td><td>null</td><td>undefined</td><td>1 of 3</td></tr><tr><th bgcolor='#BEBEBE'>q2</th><th bgcolor='#BEBEBE'>open</th><th bgcolor='#BEBEBE'>High</th><th bgcolor='#BEBEBE'>yv_master</th><th bgcolor='#BEBEBE'>2017-11-20</th><th bgcolor='#BEBEBE'></th></tr><tr><th>2 of q2</th><td>open</td><td>High</td><td>null</td><td>2017-11-28</td><td>2</td></tr><tr><th>1 of q2</th><td>open</td><td>high</td><td>null</td><td>2017-11-28</td><td>1</td></tr><tr><th bgcolor='#BEBEBE'>q1</th><th bgcolor='#BEBEBE'>open</th><th bgcolor='#BEBEBE'>high</th><th bgcolor='#BEBEBE'>yv_master</th><th bgcolor='#BEBEBE'>2017-11-20</th><th bgcolor='#BEBEBE'></th></tr><tr><th bgcolor='#BEBEBE'>q6</th><th bgcolor='#BEBEBE'>open</th><th bgcolor='#BEBEBE'>high</th><th bgcolor='#BEBEBE'>yv_master</th><th bgcolor='#BEBEBE'>2017-11-20</th><th bgcolor='#BEBEBE'></th></tr></thead><p><a href='home_yv_master.html'>Back to my home</a></p></table></body></html>

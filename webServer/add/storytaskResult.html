@@ -6,18 +6,32 @@
 <script type='text/javascript' src='jquery-3.2.1.min.js'></script>
 <script type="text/javascript">
 $(document).ready(function(){ 
-  $("#addT").click(function(){
+  $("table button").click(function(){
     console.log('goto get story title');
-    var storyTitle = $(this).siblings('th:eq(0)').text();
+    var storyTitle = $(this).parents('td').siblings('th:eq(0)').text();
     console.log('storyTitle = '+storyTitle);
 
-  })
+    $.ajax({
+      type: 'POST',
+      url: '/addT_storyTitle',
+      data:'addT_storyTitle='+storyTitle,
+      success: function(data, status){
+        console.log('i am in success');
+          //alert('session is done'); 
+          window.open('addTask.html')       
+        
+      },
+      error: function(data, err){
+        console.log('i am in error');
+          alert('Please try again');
+          
+      }
+    });
+
+  })   
+
+
 })
-
-
-function addtask(){
-window.open('addTask.html');
-}
 /*
 
 /*  
@@ -76,7 +90,7 @@ function addtask(){
 </head>
 
 <body>
-<p><strong>Create Tasks</strong></p>
+
 <p>&nbsp;</p>
 
 
