@@ -102,14 +102,26 @@ app.get('/createTask', createTask.index);
 var fetchStory = require('./fetch/fetchStory');
 app.get('/fetchStory', fetchStory.index);
 
+var fetchTask = require('./fetch/fetchTask');
+app.get('/fetchTask', fetchTask.index);
+
 var editStory = require('./Search/editStory');
 app.get('/editStory', editStory.index);
 
 var editTask = require('./Search/editTask');
 app.get('/editTask', editTask.index);
 
+var editTask_teammember = require('./Search/editTask_teammember');
+app.get('/editTask_teammember', editTask_teammember.index);
+
 var delStory = require('./Search/delStory');
 app.get('/delStory', delStory.index);
+
+var delTask = require('./Search/delTask');
+app.get('/delTask', delTask.index);
+
+var logout = require('./register/logout');
+app.get('/logout', logout.index);
 
 /*
 app.post("/addStory", function(req,res){

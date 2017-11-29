@@ -18,18 +18,26 @@ var mysql = require('mysql');
 	
 
 	//fetch story and task from db	
-	
-	displaySql = "select * from story as s left join task t on s.parent=t.tparent where s.owner='"+username+"' and s.status != 'closed'";
-	
-	connection.query(displaySql, function(err, result){
-		if(err){
+	var userSql = "select * from user where username ='"+username+"'";
+		connection.query(userSql, function(err, result){
+			if(err){
+			console.log('[user query for master error] - ', err.message);
+			return;
+					}
+			console.log('######master of team member');
+			console.log(result);
+			console.log('######master of team member');
+			var master = result[0].master
+			console.log('master = '+master);
+
+			var displaySql = "select * from story as s left join task t on s.parent=t.tparent where s.owner='"+master+"' and s.status != 'closed' and t.towner ='"+username+"'";
+
+			connection.query(displaySql, function(err, result){
+			if(err){
 			console.log('[story display error] - ', err.message);
 			return;
-		}
-		//console.log('------------------------story and task display');
-		//console.log(result);
-		//console.log(result.length);
-		//console.log('------------------------story and task display');
+					}	
+	
 		if (result==''){
 			res.write('no stories are under your name');
 
@@ -57,9 +65,7 @@ var mysql = require('mysql');
 
          //                  "<th><div align='left'>Owner</div></th><th>Deadline</div></th><th><div align='left'>Description</div></th></tr>";
 
-		if (role == 'team member'){
-			listAll += 'Please pick up your task and you can edit its status here'
-		}
+		
 		for (var i = 0; i < result.length; i++){			   
 
 			// !=null is added for the cast that either story or task is successfully saved in db but story or task not
@@ -86,13 +92,13 @@ var mysql = require('mysql');
 
             			"<td>" + result[i].tstatus + "</td>"+                        
 
-                         "<td>" + result[i].tlevel + "</td>"+
+                         "<th>" + result[i].tlevel + "</th>"+
 
                          "<td>" + result[i].towner + "</td>"+
 
-                         "<td>" + result[i].tdeadline + "</td>"+
+                         "<th>" + result[i].tdeadline + "</th>"+
 
-                         "<td>" + result[i].tdescription + "</td>"+
+                         "<th>" + result[i].tdescription + "</th>"+
 
                          "</tr>";    
             };
@@ -119,13 +125,15 @@ var mysql = require('mysql');
 
 		setTimeout(function(){
 			res.sendfile(direction)
-		},5000);
+		},3000);
+
+		connection.end();
 
 		});
   });
 
-	//res.redirect('/');
+});
 
-	connection.end();
+	
 
 	};

@@ -46,10 +46,32 @@ var mysql = require('mysql');
 	});
 */
 
-	//fetch story and task from db	
+	//fetch story and task from db		
 	
-	displaySql = "select * from story as s left join task t on s.parent=t.tparent where s.owner='"+username+"' and s.status != 'closed'";
-	
+	var displaySql = "select * from story as s left join task t on s.parent=t.tparent where s.owner='"+username+"' and s.status != 'closed'";
+	//#############################################################################################################
+	console.log('role = '+role);
+	if (role == 'team member'){
+		console.log('i am in if of role');
+		var userSql = "select * from user where username ='"+username+"'";
+		connection.query(userSql, function(err, result){
+			if(err){
+			console.log('[story display error] - ', err.message);
+			return;
+					}
+			console.log('######master of team member');
+			console.log(result);
+			console.log('######master of team member');
+			if (result[0].master !=''){ //it is must
+				req.session.teammember_master = result[0].master
+			}
+			
+		})
+		console.log('req.session.teammember_master = '+req.session.teammember_master);
+		displaySql = "select * from story as s left join task t on s.parent=t.tparent where s.owner='"+req.session.teammember_master+"' and s.status != 'closed' and t.towner ='"+username+"'";
+	}
+
+	//#############################################################################################################
 	connection.query(displaySql, function(err, result){
 		if(err){
 			console.log('[story display error] - ', err.message);

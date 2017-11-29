@@ -116,7 +116,7 @@ exports.index = function(req,res){
     			  					  "<script src='https://cdn.bootcss.com/react/15.4.2/react.min.js'></script>"+
     			  					  "<script src='https://cdn.bootcss.com/react/15.4.2/react-dom.min.js'></script>"+
 					    			  "<script src='https://cdn.bootcss.com/babel-standalone/6.22.1/babel.min.js'></script>"+
-					  				  "</head><body>";
+					  				  "</head><body><div style='text-align:right;'><a href='/logout'>Log out</a></div>";
 						var htmlEnd = '</body></html>';
 						if (search == 'search bar'){
 							content+="<div id='searchBar'></div><script type='text/babel' src='searchbar.js'></script>" 							
@@ -131,6 +131,7 @@ exports.index = function(req,res){
 				        if (edit == 'story'){
 							content+="<div id='editStory'></div><script type='text/babel' src='editstory.js'></script>"
 				           };
+
 				        if (del == 'story'){
 							content+="<div id='delStory'></div><script type='text/babel' src='delstory.js'></script>"
 				           };
@@ -143,6 +144,22 @@ exports.index = function(req,res){
 				        if (edit == 'task'){
 							content+="<div id='editTask'></div><script type='text/babel' src='edittask.js'></script>"
 				           };
+				        
+				        if (del == 'task'){
+							content+="<div id='delTask'></div><script type='text/babel' src='deltask.js'></script>"
+				           };
+				        if (list == 'task'){
+							content+="<div id='listTask'></div><script type='text/babel' src='listtask.js'></script>"
+				           };
+				        if (edit == 'task_teammember'){
+							content+="<div id='editTask'></div><script type='text/babel' src='edittask_teammember.js'></script>"
+				           };
+
+
+				        //if (edit == 'task_teammember'){
+						//	content+="<div id='editTask'></div><script type='text/babel' src='edittask.js'></script>"
+				         //  };
+				        
 				        
 				        //content+="<input id='hiddenUsername' type='hidden' name='hiddenUsername' value='"+username+"'/>";
 				        //content+="<input id='hiddenrole' type='hidden' name='hiddenrole' value='"+userrole+"'/>";

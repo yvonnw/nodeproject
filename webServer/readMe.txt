@@ -6,9 +6,23 @@
 5. delete (public/search_edit_delete.html)
 6. sign up (public/signUp.html)
 7. send mail
-8. sign in - po search bar, list story, add story, edit story, delete story
-		   - master search bar, list story and task, create task, edit task
+8. sign in - po: search bar, list story, add story, edit story, delete story
+		   - master: search bar, list story and task, create task, edit task, delete task
+		   - team member: list task, edit task
+9. log out
 		   
+
+[2017_11_29]
+delete task for master is done.
+
+list tasks with their story for team member is done.
+
+edit tasks with their story for team member is done.
+
+log out is done.
+
+
+
 
 [2017_11_28]
 creating task is done

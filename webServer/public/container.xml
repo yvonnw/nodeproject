@@ -18,8 +18,8 @@
 		<title>team member</title>
 		<search>search bar</search>
 		<list>task</list>
-		<create></create>
-		<edit>task</edit>
-		<del></del>
+		<create>prohibited</create>
+		<edit>task_teammember</edit>
+		<del>prohibited</del>
 	
 </role>
