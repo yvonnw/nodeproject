@@ -6,6 +6,7 @@ exports.index = function(req,res){
     var password = req.body.password;
     var mailbox = req.body.mailbox;
     var role = req.body.role;
+    var master = req.body.master;
 
 	console.log(req.body);
     
@@ -34,7 +35,7 @@ exports.index = function(req,res){
 		}
 		if (result == ''){
 		console.log('goahead1 ='+goahead);
-		var addUSql = "insert into user(username, password, mailbox, role) values('"+username+"', '"+password+"', '"+mailbox+"', '"+role+"')";
+		var addUSql = "insert into user(username, password, mailbox, role, master) values('"+username+"', '"+password+"', '"+mailbox+"', '"+role+"', '"+master+"')";
 			console.log('addUSql ='+addUSql);
 			
 			connection.query(addUSql, function(err, result){

@@ -1,5 +1,7 @@
 exports.index = function(req,res){
 
+var username = req.session.username;
+var direction_home = 'home_'+username+'.html';
 
 var mysql = require('mysql');
 	var connection = mysql.createConnection({
@@ -57,17 +59,17 @@ var mysql = require('mysql');
             			
             			"<th bgcolor='#BEBEBE'>" + result[i].title + "</th>" +   
 
-            			 "<td bgcolor='#BEBEBE'>" + result[i].status + "</td>"+                      
+            			 "<th bgcolor='#BEBEBE'>" + result[i].status + "</th>"+                      
 
-                         "<td bgcolor='#BEBEBE'>" + result[i].level + "</td>"+
+                         "<th bgcolor='#BEBEBE'>" + result[i].level + "</th>"+
 
-                         "<td bgcolor='#BEBEBE'>" + result[i].owner + "</td>"+
+                         "<th bgcolor='#BEBEBE'>" + result[i].owner + "</th>"+
 
-                         "<td bgcolor='#BEBEBE'>" + result[i].deadline + "</td>"+
+                         "<th bgcolor='#BEBEBE'>" + result[i].deadline + "</th>"+
 
-                         "<td bgcolor='#BEBEBE'>" + result[i].description + "</td>" +
+                         "<th bgcolor='#BEBEBE'>" + result[i].description + "</th>" +
                          
-                         "<th bgcolor='#BEBEBE'><button bgcolor='#BEBEBE'type='button' id='delete'>Delete</button></th>"+
+                         //"<th bgcolor='#BEBEBE'><button bgcolor='#BEBEBE'type='button' id='delete'>Delete</button></th>"+
                          //"<th bgcolor='#BEBEBE'><input id='delete' value='Delete'/></th>"+
                          
                          "</tr>";
@@ -82,17 +84,17 @@ var mysql = require('mysql');
             			
             			"<th>" + result[i].ttitle + "</th>" +  
 
-            			"<td>" + result[i].tstatus + "</td>"+                        
+            			"<th>" + result[i].tstatus + "</th>"+                        
 
-                         "<td>" + result[i].tlevel + "</td>"+
+                         "<th>" + result[i].tlevel + "</th>"+
 
-                         "<td>" + result[i].towner + "</td>"+
+                         "<th>" + result[i].towner + "</th>"+
 
-                         "<td>" + result[i].tdeadline + "</td>"+
+                         "<th>" + result[i].tdeadline + "</th>"+
                          
                          "<th></th>" +
 
-                         "<th><button type='button' id='delete'>Delete</button></th>"+
+                         //"<th><button type='button' id='delete'>Delete</button></th>"+
                          //"<th><input id='delete' value='Delete'/></th>"+
                          
                          "</tr>";
@@ -103,7 +105,7 @@ var mysql = require('mysql');
             
 		};
 
-		listAll += "</thead>"+
+		listAll += "</thead>"+"<p><a href='"+direction_home+"'>Back to my home</a></p>"+
 					
 					"</body></html>";
 

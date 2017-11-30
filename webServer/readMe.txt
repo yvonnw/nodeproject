@@ -12,6 +12,18 @@
 9. log out
 		   
 
+[2017_11_30]
+Add master field when team member registers, it is important to list tasks with their story when team member list tasks to help better understand their jobs.
+
+Add task pool for team members so that they can pick up task for themselves, in the task pool only owner field can be changed.
+
+Sync status for story, if all the story's tasks are closed, corresponding story will be marked as closed automatically.
+
+Closing story directly by changing its status is not allowed, note like 'Story can be closed only when its tasks are closed by task owner' pops up.
+
+Make some changes on search bar so that edit is not allowed on search results.
+
+
 [2017_11_29]
 delete task for master is done.
 

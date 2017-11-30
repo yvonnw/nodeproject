@@ -57,7 +57,20 @@ $(document).ready(function(){
 	 	$.ajax({
 	 		type: 'POST',
 	 		url: '/saveChange',
-	 		data:'changedTitle='+changedTitle+'&changedField='+field+'&changedValue='+changedValue+'&category='+category
+	 		data:'changedTitle='+changedTitle+'&changedField='+field+'&changedValue='+changedValue+'&category='+category,
+	 		//##################################################################
+	 		success: function(data, status){
+	 			console.log('i am in success');
+	 								
+	 			
+	 		},
+	 		error: function(data, err){
+	 			console.log('i am in error');
+	 				alert('Story can be closed only when its tasks are closed by task owner');
+	 				
+	 		}
+	 		
+	 		//##############################################################
 	 	}); 
 
 	  });

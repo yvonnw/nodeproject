@@ -11,34 +11,49 @@
 <script type="text/javascript" src="jquery-3.2.1.min.js"></script>  
   
     <script>  
-    	/*
-    $(document).ready(function(){  
-        $("#registerButton").click(function(){ 
-        	console.log('registerButton is clicked');
+    var count = 0;
+    $(document).ready(function(){
+        $("#role").change(function(){
+            
+            var role = $("#role").val();
+            console.log('role = '+role);
+            var obj = document.getElementById('r');
+
+         if (count==0 && role=='team member'){         
+            console.log('role is changed'); 
+            var newLine = document.createElement('br');
+            //var oldelement = document.getElementById('sub');
+            var master = document.createElement("input");
+            master.name =  'master';
+            master.id = 'master';
+            master.placeholder = 'Your master';
+            master.required = 'required';
+            obj.appendChild(master);
+            //obj.insertBefore(master,oldelement);
+            //obj.appendChild(newLine);
+
+            count+=1;
+/*
             var username = $("#username").val();
             var password = $("#password").val();
             var password1 = $("#password1").val();
             var mailbox = $("#mailbox").val();
             var role = $("#role").val();
-                      
-            $.ajax({ 
-            	type: 'POST',
-                url: '/register',                
-                data:'username='+username+'&password='+password+'&mailbox='+mailbox+'&role='+role    
+            
+        */
+        }//if count ==0
 
-                success: function(data,status){ 
-                    if(status == 'success'){ 
-                        location.href = '/';
-                    }
-                },
-                error: function(data,err){ 
-                        location.href = 'www.baidu.com';
-                }           
-            }); 
+         if (document.getElementById('master') && (role !='team member')){
+            console.log('i am in master if')
+            var removed = document.getElementById('master');
+                removed.parentNode.removeChild(removed);
+                count=0;
+         }
+
+        });
         
-    	});
+    
     });
- */
 </script>
 </head>
 <body>
@@ -70,7 +85,7 @@
                     </div>
                 </div>
 				<div>
-                    <div>                        
+                    <div id='r'>                        
                         Role <input type="text" class="form-control" id="role" name="role" placeholder="PO, master or team member" required>
                     </div>
                 </div>

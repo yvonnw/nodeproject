@@ -1,25 +1,66 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="UTF-8" />
-    <title>Home</title>
-    <script src="https://cdn.bootcss.com/react/15.4.2/react.min.js"></script>
-    <script src="https://cdn.bootcss.com/react/15.4.2/react-dom.min.js"></script>
-    <script src="https://cdn.bootcss.com/babel-standalone/6.22.1/babel.min.js"></script>
-  </head>
-  <body>
-    <div style="text-align:right;"><a href="/logout">Log out</a></div>
-    <div id="searchBar"></div>
-    <script type="text/babel" src="searchbar.js"></script>
-    <div id="listStory"></div>
-    <script type="text/babel" src="liststory.js"></script>
-    <div id='createStory'></div>
-    <script type='text/babel' src='createstory.js'></script>
-    <div id='createTask'></div>
-    <script type='text/babel' src='createtask.js'></script>
-    <div id='delTask'></div>
-    <script type='text/babel' src='deltask.js'></script>
+<html lang="en">
+<head>
+    <meta charset="utf-8">    
+    <title>Login</title>    
+    <style type="text/css">
+    .m15{ margin: 15px;}
+     .tc{ text-align: center;font-size: 18px;font-weight: 600;}
+    </style>
+<script type="text/javascript">
+
+function signUp(){
+    console.log('goto signup');
+    window.location.assign('signUp.html')
+}
+
+
+
+</script>
+</head>
+<body>
+    <div class="container">
+      <form method="post" action="/login">
+            <fieldset>
+                
+                <div>
+                <div>
+                    <p class="tc">Login</p>
+                </div>
+                <div class="m15">
+                <div>
+                    <div>
+                        
+                        Username <input type="text" class="form-control" id="username" name="username" placeholder="user name" required>
+                    </div>
+                </div>
+                <div>
+                    <div>
+                        
+                        Password <input type="password" id="password" name="password" placeholder="password" required>
+                    </div>
+                </div>              
+				
+				
+                <div>
+                        <input id="login" type="submit" value="Login"/>
+                        
+                </div>
+                <div>
+                        <input id="signup" type="button" value="Sign Up", onclick="signUp()"/>
+                </div>
+                </div>
+                </div>
+            </fieldset>
+       </form> 
+    </div>
+
     
-    
-  </body>
+</body>
+</head>
 </html>
+
+
+
+
+

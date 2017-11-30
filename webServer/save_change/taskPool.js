@@ -3,7 +3,6 @@ exports.index = function(req,res){
 
 	console.log('i am here!!!!!!!!!!!!!!');
 	console.log(req.body);
-	var role = req.session.role;
 	/*
 	//  extra string from hidden fields varies, cannot find a way to get the valid value by cutting, so this way is given up. since spending 
 	// a lot of time to study it, this part of code is reserved.
@@ -41,18 +40,18 @@ exports.index = function(req,res){
     console.log('changed Value after cut');
     console.log(changedValue);
     */
-    var updateSql_s = '';
+    //var updateSql_s = '';
     var changedTitle = req.body.changedTitle;
-    var changedField = req.body.changedField;
+    //var changedField = req.body.changedField;
     var changedValue = req.body.changedValue;
-    var category = req.body.category
-    console.log(' type of changedTitle = ');
+    //var category = req.body.category
+    //console.log(' type of changedTitle = ');
 	//console.log(typeof req.body.changedTitle);
 	console.log('changedTitle = '+changedTitle);
-	console.log('changedField = '+changedField);
+	//console.log('changedField = '+changedField);
 	console.log('changedValue = '+changedValue);
-	console.log('category = '+category);
-
+	//console.log('category = '+category);
+	/*
     switch(changedField)
 		{
 
@@ -72,11 +71,12 @@ exports.index = function(req,res){
 			updateSql_s = "update story set description='"+changedValue+"' where title='"+changedTitle+"'";				
 			break;
 		};
+*/
 
-
-	var updateSql_t = '';
+	var updateSql_t = "update task set towner='"+changedValue+"' where ttitle='"+changedTitle+"'";
+	var taskSql = "select * from task where ttitle='"+changedTitle+"'";
     
-
+/*
     switch(changedField)
 		{
 
@@ -104,7 +104,7 @@ exports.index = function(req,res){
 		console.log(updateSql_t)
 
 
-
+*/
     var mysql = require('mysql');
 	var connection = mysql.createConnection({
 		host: 'localhost',
@@ -115,91 +115,53 @@ exports.index = function(req,res){
 
 	connection.connect();
 
-
-
-
-
-
-	
+/*	
 	if (category == 'story'){
-		if (role=='po' && changedValue=='closed' && changedField=='status'){
-			console.log('sending 500')
-			res.send(500);
-		}
-		else{
 			connection.query(updateSql_s, function(err, result){
 			if(err){
 			console.log('[update error_story] - ', err.message);
 			return;
 					};
 			console.log('update story is done');
-			res.send(200);
 			  });
-		};
-	};//if
-
-	if (category == 'task'){
-			connection.query(updateSql_t, function(err, result){
+	};
+*/
+	//if (category == 'task'){
+			connection.query(taskSql, function(err, result){
 			if(err){
-			console.log('[update error_task] - ', err.message);
+			console.log('[query error_task] - ', err.message);
 			return;
 					};
-			console.log('update task is done');
-			res.send(200);
+			console.log('----------------task-----------');
+			console.log(result);
+			console.log('----------------task-----------');
+			console.log('towner = '+result[0].towner);
+			console.log(' type = '+typeof result[0].towner);
+			if (result[0].towner!= null || result[0].towner!= undefined){
+				console.log('sending 500');
+				res.send(500);
+			}
+			else {
+				connection.query(updateSql_t, function(err, result){
+					if(err){
+							console.log('[update error_task] - ', err.message);
+							return;
+						};
+					console.log('sending 200');
+					res.send(200);
+				})
+			}
+			connection.end();
+
+			
 			  });
 
-
-			if (changedField=='status'){
-				var storyQuery = "select * from task where ttitle='"+changedTitle+"'";
-				connection.query(storyQuery, function(err, result){
-					if(err){
-					console.log('[query error_story title] - ', err.message);
-					return;					
-							};
-					console.log('----------story title-----------');
-					console.log(result);
-					console.log('----------story title-----------');
-					var storyTitle = result[0].tparent;
-					console.log('storyTitle = '+storyTitle);
-
-					var taskQuery = "select * from task where tparent='"+storyTitle+"'";
-					console.log('taskQuery = '+taskQuery);
-					connection.query(taskQuery, function(err, result){
-						if(err){
-							console.log('[query error_tasks under same story] - ', err.message);
-							return;					
-							};
-					console.log('----------task-----------');
-					console.log(result);
-					console.log('----------task-----------');
-
-					var closedTask=0;
-					for (var i = 0; i < result.length; i++){
-						if (result[i].tstatus=='closed'){
-							closedTask+=1;
-						}
-					}
-					if (closedTask == result.length){
-						var closeStory = "update story set status='closed' where title='"+storyTitle+"'";
-						connection.query(closeStory, function(err, result){
-							console.log('story is closed')
-							res.send(200);
-
-						})//closeStory
-			}
-connection.end();
-		})//taskQuery
-
-	})//storyQuery
-
-	}
-//connection.end();
 	}		
 			
 	
 
 	
-};
+
 
 
 

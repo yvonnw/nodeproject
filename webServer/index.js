@@ -76,6 +76,9 @@ app.post('/searchStoryTask', searchStoryAndTask.index);
 var saveChange = require('./save_change/saveChange');
 app.post('/saveChange', saveChange.index);
 
+var taskPool = require('./save_change/taskPool');
+app.post('/taskPool', taskPool.index);
+
 var deleterecord = require('./delete/delete');
 app.post('/delete', deleterecord.index);
 
@@ -104,6 +107,9 @@ app.get('/fetchStory', fetchStory.index);
 
 var fetchTask = require('./fetch/fetchTask');
 app.get('/fetchTask', fetchTask.index);
+
+var poolTask = require('./fetch/poolTask');
+app.get('/poolTask', poolTask.index);
 
 var editStory = require('./Search/editStory');
 app.get('/editStory', editStory.index);

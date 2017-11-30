@@ -6,6 +6,7 @@
 		<create>story</create>
 		<edit>story</edit>
 		<del>story</del>
+		<pool>prohibited</pool>
 	
 	
 		<title>master</title>
@@ -14,6 +15,8 @@
 		<create>task</create>
 		<edit>task</edit>
 		<del>task</del>
+		<pool>prohibited</pool>
+
 	
 		<title>team member</title>
 		<search>search bar</search>
@@ -21,5 +24,6 @@
 		<create>prohibited</create>
 		<edit>task_teammember</edit>
 		<del>prohibited</del>
+		<pool>task</pool>
 	
 </role>
