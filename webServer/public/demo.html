@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">    
+<title>Login</title>    
+    <style type="text/css">
+    .m15{ margin: 15px;}
+     .tc{ text-align: center;font-size: 18px;font-weight: 600;}	    
+    .textonimage {
+	font-size: 500%;
+	font-weight: bolder;
+	color: #FFFFFF;
+	line-height: normal;
+	font-family: Arial, Helvetica, sans-serif;
+}
+    </style>
+<script type="text/javascript">
+
+function signUp(){
+    console.log('goto signup');
+    window.location.assign('signUp.html')
+}
+
+
+
+</script>
+</head>
+<body>
+<link rel="bookmark" type="image/x-icon" href="logo3.ico"/>
+<link rel="shortcut icon" href="logo3.ico"/>
+<div>
+    <div>
+        <img src="/logo2.jpg"/>
+    </div>
+  <img src="/pigeons.jpg"/>
+  <div class="textonimage" style="position: absolute; top:368px; left:443px; width: 1000px; height: 22px;">Agile Assistant</div>
+</div>
+
+    <div class="container">
+      <form method="post" action="/login">
+            <fieldset>
+                
+                <div>
+                <div>
+                    <p class="tc">Login</p>
+                </div>
+                <div class="m15">
+                <div>
+                    <div>
+                        
+                        Username <input type="text" class="form-control" id="username" name="username" placeholder="user name" required>
+                    </div>
+                </div>
+                <div>
+                    <div>
+                        
+                        Password <input type="password" id="password" name="password" placeholder="password" required>
+                    </div>
+                </div>              
+                
+                
+                <div>
+                        <input id="login" type="submit" value="Login"/>
+                        
+                </div>
+                <div>
+                        <input id="signup" type="button" value="Sign Up", onClick="signUp()"/>
+                </div>
+                </div>
+                </div>
+            </fieldset>
+       </form> 
+    </div>
+
+</body>
+</html>

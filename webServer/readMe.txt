@@ -12,6 +12,11 @@
 9. log out
 		   
 
+[2017_12_1]
+To beautify UI (public/demo.html), it is not as easy as image to control elements' location, fileZilla doesn't work today, ico file will be transferred tomorrow. I am gonna finish all the UI-related by 12/2 or 12/3.
+
+
+
 [2017_11_30]
 Add master field when team member registers, it is important to list tasks with their story when team member list tasks to help better understand their jobs.
 
