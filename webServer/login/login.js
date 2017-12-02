@@ -119,10 +119,16 @@ exports.index = function(req,res){
     			  					  "<script src='https://cdn.bootcss.com/react/15.4.2/react.min.js'></script>"+
     			  					  "<script src='https://cdn.bootcss.com/react/15.4.2/react-dom.min.js'></script>"+
 					    			  "<script src='https://cdn.bootcss.com/babel-standalone/6.22.1/babel.min.js'></script>"+
+					    			  "<style type='text/css'>"+
+									  ".top{width: 980px;"+
+											"height: 70px;"+	 
+											 "position: fixed;"+
+											 "top:0;"+	
+											 "left:30%;}</style>"+
 					  				  "</head><body><div style='text-align:right;'><a href='/logout'>Log out</a></div>";
 						var htmlEnd = '</body></html>';
 						if (search == 'search bar'){
-							content+="<div id='searchBar'></div><script type='text/babel' src='searchbar.js'></script>" 							
+							content+="<div class='top' id='searchBar'></div><script type='text/babel' src='searchbar.js'></script><br>" 							
 						};
 						if (list == 'story'){
 							content+="<div id='listStory'></div><script type='text/babel' src='liststory.js'></script>"

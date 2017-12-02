@@ -12,6 +12,14 @@
 9. log out
 		   
 
+[2017_12_2]
+ui change is done. this project is closed, it is planned to start new project around 12/18. see you later.
+
+by the way, visual studio code is too slow on virtual machine, so it wes not used in this project. i am gonna use it in next project.
+
+
+
+
 [2017_12_1]
 To beautify UI (public/demo.html), it is not as easy as image to control elements' location, fileZilla doesn't work today, ico file will be transferred tomorrow. I am gonna finish all the UI-related by 12/2 or 12/3.
 
