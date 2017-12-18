@@ -1,4 +1,21 @@
-[Feature list]: 
+[Feature list - caddon branch]: 
+
+
+[2017_12_18]
+New project lives on new brach caddon that is branched out from master branch.
+new features will be developed with c/c++ to strengthen nodeproject on branch master.
+
+One demo hello addon is done under nodeproject/webServer/src, I am gonna start new feature from tomorrow. 
+
+Some VMware improvments to better support vscode is done, debug can run, the bad news is that windows is so slow that I feel going back to 486 era.
+
+
+
+
+
+
+####################################################################
+[Feature list - master branch]: 
 1. create story and task via web page (public/addStoryAndTask.html)
 2. display all the story and task by group (public/displayStoryAndTask.html)
 3. fussy lookup (public/search_edit_delete.html)
@@ -11,6 +28,7 @@
 		   - team member: list task, edit task
 9. log out
 		   
+
 
 [2017_12_2]
 ui change is done. this project is closed, it is planned to start new project around 12/18. see you later.
