@@ -1,6 +1,15 @@
 [Feature list - caddon branch]: 
 
 
+
+[2017_12_19]
+cpp (nodeproject/webServer/src/push) is create to query db, but only 1st record is shown, needing to figure it out.
+
+The 1st line in makefile is must, or error message 'Makefile:2: *** recipe commences before first target.  Stop.
+' is shown, have no idea about why :{
+
+
+
 [2017_12_18]
 New project lives on new brach caddon that is branched out from master branch.
 new features will be developed with c/c++ to strengthen nodeproject on branch master.
