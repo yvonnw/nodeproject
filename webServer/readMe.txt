@@ -1,6 +1,12 @@
 [Feature list - caddon branch]: 
 
 
+[2017_12_20]
+Task title can be picked out from db, team member's preference will be identified from task closed by them.
+
+I am working on identifier with, it will be tested tomorrow. 
+
+
 
 [2017_12_19]
 cpp (nodeproject/webServer/src/push) is create to query db, but only 1st record is shown, needing to figure it out.

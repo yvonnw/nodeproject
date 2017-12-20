@@ -7,7 +7,9 @@
             "label": "Compile",
             "type": "shell",
             "command": "g++",
-            "args": ["-g","${file}"],
+            //"args": ["-g","${file}","-I","/usr/local/mysql/include","-L","/usr/local/mysql/lib","-lmysqlclient"],   
+               
+            "args": ["-g","/home/yv/cworld/nodeproject/webServer/src/push/MyDB.h","/home/yv/cworld/nodeproject/webServer/src/push/MyDB.cpp","/home/yv/cworld/nodeproject/webServer/src/push/main.cpp","-I","/usr/local/mysql/include","-L","/usr/local/mysql/lib","-lmysqlclient"],      
             "problemMatcher":"$gcc"
             }
             ]

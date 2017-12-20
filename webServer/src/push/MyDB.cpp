@@ -1,11 +1,12 @@
 /*****************************************************
- * Functions defined in header file_MyDB.h
+ * Functions declared in header file_MyDB.h
  * ***************************************************/
 
 #include <iostream>
 #include <cstdlib>
 #include <mysql/mysql.h>
 #include "MyDB.h"
+#include <string>
 using namespace std;
 
 MyDB::MyDB() {
@@ -37,14 +38,42 @@ bool MyDB::exeSQL(string sql){
         exit(1);
     }
     else {
-        result = mysql_use_result(connection);
-        for(int i=0; i < mysql_field_count(connection); ++i){      //row
+        //result = mysql_use_result(connection); //not all the records are found if use mysql_use_result
+        result = mysql_store_result(connection); // according to mysql menual, mysql_store_result reads the result set into client, not sure its performance
+        int row_num = mysql_num_rows(result);
+        for(int i=0; i<row_num; ++i){     //row
             row = mysql_fetch_row(result);
-            if(row <= 0){
-                break;
-            }
+
             for(int j=0; j<mysql_num_fields(result); ++j){   //columns of each row
                 cout << row[j] << " ";
+                string ttitle = row[j];
+                int size = ttitle.size();
+                string target = "with"; //e.g. edit record with jquery 
+                int position = ttitle.find(target);
+                string sub = ttitle.substr(position+1,size); //get the string after with
+                size = sub.size();
+                position = sub.find(" ");
+                string sub1 = sub.substr(0,position);                
+                if (sub1.find("the")){  
+                    string sub = sub.substr(position+4,size);
+                    position = sub.find(" ");
+                    string sub1 = sub.substr(0,position); 
+                }
+                else if (sub1.find("a")){  
+                    string sub = sub.substr(position+2,size);
+                    position = sub.find(" ");
+                    string sub1 = sub.substr(0,position); 
+                }
+                else if (sub1.find("an")){  
+                    string sub = sub.substr(position+3,size);
+                    position = sub.find(" ");
+                    string sub1 = sub.substr(0,position); 
+                }
+                string preference = sub1+" ";
+
+                } //for j
+
+
             }
             cout << endl;
         }
