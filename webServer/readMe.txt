@@ -1,6 +1,12 @@
 [Feature list - caddon branch]: 
 
 
+[2017_12_21]
+Potential preference following prepositions(with, on of and etc) can be picked out, and pass test.
+
+keeping working on other rules to find potential preference.
+
+
 [2017_12_20]
 Task title can be picked out from db, team member's preference will be identified from task closed by them.
 
