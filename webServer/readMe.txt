@@ -1,6 +1,12 @@
 [Feature list - caddon branch]: 
 
 
+
+[2017_12_22]
+return master and and another way to find protential preference are done and pass test. 
+just find way to return query results for recommanded tasks, test is needed.
+
+
 [2017_12_21]
 Potential preference following prepositions(with, on of and etc) can be picked out, and pass test.
 

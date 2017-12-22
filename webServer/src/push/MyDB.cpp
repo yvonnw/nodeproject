@@ -32,7 +32,49 @@ bool MyDB::initDB(string host, string user, string pwd, string db_name){
     return true;
 }
 
-bool MyDB::exeSQL(string sql){
+string** MyDB::exeSQL_query(string sql){
+    if(mysql_query(connection, sql.c_str())){
+        cout << "query error:" << mysql_error(connection);
+        exit(1);
+    }
+    else {        
+        result = mysql_store_result(connection);           
+        int row_num = mysql_num_rows(result);  
+        string *arr[row_num];  
+        string row_value = "";
+        string *q;    
+        for(int i=0; i<row_num; ++i){     
+            row = mysql_fetch_row(result);
+
+            for(int j=0; j<mysql_num_fields(result); ++j){   
+                cout << row[j] << " ";
+                row_value = row_value+row[j]+' ';                
+            }
+            *arr[i] = row_value;
+            //*q=&arr[0];
+        } 
+        return arr;
+    }
+}
+
+
+
+
+string MyDB::exeSQL_queryMaster(string sql){
+    if(mysql_query(connection, sql.c_str())){
+        cout << "query error:" << mysql_error(connection);
+        exit(1);
+    }
+    else {
+        result = mysql_store_result(connection);           
+        row = mysql_fetch_row(result);            
+        string master = row[0];
+        return master;
+    } 
+}
+
+string MyDB::exeSQL_getPreference(string sql){
+    string preference = "";
     if(mysql_query(connection, sql.c_str())){
         cout << "query error:" << mysql_error(connection);
         exit(1);
@@ -40,8 +82,7 @@ bool MyDB::exeSQL(string sql){
     else {
         //result = mysql_use_result(connection); //not all the records are found if use mysql_use_result
         result = mysql_store_result(connection); // according to mysql menual, mysql_store_result reads the result set into client, not sure its performance
-        int row_num = mysql_num_rows(result);
-        string preference = "";
+        int row_num = mysql_num_rows(result);        
         for(int i=0; i<row_num; ++i){     //row
             row = mysql_fetch_row(result);
 
@@ -49,12 +90,31 @@ bool MyDB::exeSQL(string sql){
                 cout << row[j] << " ";
 
                 string ttitle = row[j];
-                //ttitle = "edit record with the jquery and"; //hard code here for debug
                 int size = 0;
                 int index = 0;
                 string target = "";
                 int position = 0;
                 string sub1 = "";
+                char *p = row[j];
+                char *q = row[j];
+                int space_num = 0;
+                while (*p){                //the number of space will be used to identify preference
+                    if (*p==' '){
+                        space_num++;
+                        q=p;
+                    }
+                        p++;
+                    
+                }
+                if (space_num<4){         //e.g. create button, create a button, create a beautiful button
+                    q++;
+                    while (*q){
+                        preference += *q;
+                        q++;
+                    }
+                    preference += " ";
+                }
+
                 string prepositions[8]={"with","of","in","at","on","for","from","to"};
                 for (int index=0; index<8; index++){
                     //string target = "with "; //e.g. edit record with jquery 
@@ -82,17 +142,14 @@ bool MyDB::exeSQL(string sql){
                         preference = preference+sub1+" ";                                               
                         cout << preference;
                     }// if (position)
-                    if (position>-1){
-                            ttitle = sub1.substr(position,size);
-                        } 
                     } // for index
                 } //for j
-
                 cout << endl;
             } //for i
             mysql_free_result(result);  //release memory of result
         } // else
-        return true;
+        //return true;
+        return preference;
     }
     
 

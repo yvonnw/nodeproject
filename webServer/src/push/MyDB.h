@@ -13,7 +13,9 @@ class MyDB {
     MyDB();
     ~MyDB();
     bool initDB(string host, string user, string pwd, string db_name);
-    bool exeSQL(string sql);
+    string exeSQL_getPreference(string sql);
+    string exeSQL_queryMaster(string sql);
+    string** exeSQL_query(string sql);
     private:
     MYSQL *connection;
     MYSQL_RES *result;
