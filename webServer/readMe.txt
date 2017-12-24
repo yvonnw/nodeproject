@@ -2,6 +2,15 @@
 
 
 
+[2017_12_24]
+Query results can be return and pass test.
+
+Tried many ways to work it out, and know the failing reasons, except for one scenario:
+single linked list is used to store string, and return its head pointer, but it keeps warning that items (items * MyDB::exeSQL_query(string sql){ ) is not defined, even though it is defined in MyDB.h. I don't know why or it is should be defined in other place.
+
+
+
+
 [2017_12_22]
 return master and and another way to find protential preference are done and pass test. 
 just find way to return query results for recommanded tasks, test is needed.

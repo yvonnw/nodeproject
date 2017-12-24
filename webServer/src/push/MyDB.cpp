@@ -7,6 +7,7 @@
 #include <mysql/mysql.h>
 #include "MyDB.h"
 #include <string>
+#include <cstring>
 using namespace std;
 
 MyDB::MyDB() {
@@ -32,28 +33,57 @@ bool MyDB::initDB(string host, string user, string pwd, string db_name){
     return true;
 }
 
-string** MyDB::exeSQL_query(string sql){
+const char * MyDB::exeSQL_query(string sql){    
     if(mysql_query(connection, sql.c_str())){
         cout << "query error:" << mysql_error(connection);
         exit(1);
     }
     else {        
         result = mysql_store_result(connection);           
-        int row_num = mysql_num_rows(result);  
-        string *arr[row_num];  
-        string row_value = "";
-        string *q;    
+        int row_num = mysql_num_rows(result);
+        
+        /* items is definded in MyDB.h, why it tells 'items is not defined when items * MyDB::exeSQL_query(string sql)'
+        string arr[row_num];
+        p = (items *)malloc(sizeof(items));
+        head=p;
+        q=p;
         for(int i=0; i<row_num; ++i){     
             row = mysql_fetch_row(result);
 
-            for(int j=0; j<mysql_num_fields(result); ++j){   
-                cout << row[j] << " ";
-                row_value = row_value+row[j]+' ';                
-            }
-            *arr[i] = row_value;
-            //*q=&arr[0];
-        } 
-        return arr;
+            for(int j=0; j<mysql_num_fields(result); ++j){
+                arr[i] = arr[i]+row[j]+" ";
+            } //for j
+            p->item = arr[i];
+            p = (items*)malloc(sizeof(items));
+            q->next = p;
+            q=p;
+            
+        } // for i
+        q->next=NULL;
+        */
+        
+        string arr[row_num];
+        //const char *q[row_num];       //works well in function, values are missed when return, rec: 0x0 
+        string content=""; 
+        //const char *text;
+        for(int i=0; i<row_num; ++i){     
+            row = mysql_fetch_row(result);
+
+            for(int j=0; j<mysql_num_fields(result); ++j){ 
+                arr[i] = arr[i]+row[j]+" ";      
+            } //for j 
+            
+            //q[i]=arr[i].c_str();  //vaule will be missed when return if use c_str() 
+            content = content+arr[i]+"****";             
+            
+        } //for i                
+        int content_size=content.size();
+        char *letter = new char[content_size];
+        strcpy(letter, content.c_str());
+        
+        return letter;
+        
+        //return head;
     }
 }
 
