@@ -41,7 +41,11 @@ const char * MyDB::exeSQL_query(string sql){
     else {        
         result = mysql_store_result(connection);           
         int row_num = mysql_num_rows(result);
+        //keys= "jquery****xml file****close story****";
+        //string key[]=keys.split("****"); // it is told 'has no member split'
         
+
+
         /* items is definded in MyDB.h, why it tells 'items is not defined when items * MyDB::exeSQL_query(string sql)'
         string arr[row_num];
         p = (items *)malloc(sizeof(items));
@@ -118,13 +122,29 @@ string MyDB::exeSQL_getPreference(string sql){
 
             for(int j=0; j<mysql_num_fields(result); ++j){   //columns of each row
                 cout << row[j] << " ";
-
                 string ttitle = row[j];
+                string t = row[j];
+                t = "add master field when register";
                 int size = 0;
                 int index = 0;
                 string target = "";
                 int position = 0;
                 string sub1 = "";
+                int word_size=0;
+                string words[] = {"when", "if", "while", "where", "who"}; // add master field when register
+                for (int ind=0; ind<5; ind++){
+                    target = words[ind];
+                    position = t.find(target);
+                    if (position>=0){
+                        size = t.size();
+                        word_size=target.size();
+                        t=t.substr(position+word_size+1,size);
+                        preference = preference+t+"****";
+                    }
+                    
+                }
+                
+                position = 0;
                 char *p = row[j];
                 char *q = row[j];
                 int space_num = 0;
@@ -142,7 +162,7 @@ string MyDB::exeSQL_getPreference(string sql){
                         preference += *q;
                         q++;
                     }
-                    preference += " ";
+                    preference += "****";
                 }
 
                 string prepositions[8]={"with","of","in","at","on","for","from","to"};
@@ -166,10 +186,12 @@ string MyDB::exeSQL_getPreference(string sql){
                         else if (!(position=sub1.find("an "))){  //cut 'an'
                             sub1 = sub1.substr(position+3,size);                    
                         }
+                        /*
                         position = sub1.find(" "); //get preference
                         size = sub1.size();
                         sub1 = sub1.substr(0,position);
-                        preference = preference+sub1+" ";                                               
+                        */
+                        preference = preference+sub1+"****";    // get all the words after preposition, e.g. prohibit po to close story                                           
                         cout << preference;
                     }// if (position)
                     } // for index

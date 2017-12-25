@@ -2,6 +2,16 @@
 
 
 
+
+
+[2017_12_25]
+recommanded tasks for push can be gotten.
+
+make improvement to handle when/if/where/who/while as potential preference to improve code coverage.
+
+off early today, Merry Christmas to myself.
+
+
 [2017_12_24]
 Query results can be return and pass test.
 
