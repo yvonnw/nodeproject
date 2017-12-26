@@ -13,7 +13,8 @@ using namespace std;
 
 string pushTask(string username)
 {
-   
+    string push=username+" goes through pushTask in main_cpp";
+/*
     MyDB db;
     db.initDB("localhost", "root", "123456", "agile");
     string preference = db.exeSQL_getPreference("select ttitle from task where towner='"+username+"' and tstatus='closed'");    
@@ -88,6 +89,6 @@ string pushTask(string username)
 
     }//for n
 
-    
+*/     
     return push;
 }
