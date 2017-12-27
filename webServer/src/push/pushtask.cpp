@@ -10,20 +10,16 @@
 #include <cstring>
 using namespace std;
 
+//int main(){ //for debug
+string pushTask(string username){
 
-string pushTask(string username)
-{
-    string push=username+" goes through pushTask in main_cpp";
-/*
     MyDB db;
     db.initDB("localhost", "root", "123456", "agile");
-    string preference = db.exeSQL_getPreference("select ttitle from task where towner='"+username+"' and tstatus='closed'");    
-    //string username = "666";
+    //string username = "666"; //for debug
+    string preference = db.exeSQL_getPreference("select ttitle from task where towner='"+username+"' and tstatus='closed'"); 
+    //string preference = db.exeSQL_getPreference("select ttitle from task where towner='666' and tstatus='closed'"); //for debug
     string master = db.exeSQL_queryMaster("select master from user where username='"+username+"'");
-    //cout << "master = " << master;
-    //string master = "yv_master";
     
-    //string preference = "jquery****xml file****close story****";
     int position = preference.find("****");
     int i = 0;
     string sub = preference;
@@ -48,7 +44,7 @@ string pushTask(string username)
     }
 
     
-    db.rec = db.exeSQL_query("select ttitle from task where tstatus='open' and master='yv_master'");
+    db.rec = db.exeSQL_query("select ttitle from task where tstatus='open' and master='"+master+"'");
     string a = db.rec;    
     position = a.find("****");
     sub=a;
@@ -89,6 +85,9 @@ string pushTask(string username)
 
     }//for n
 
-*/     
+   // cout << push;
+    
+    //string push=username+" goes through pushTask in pushtask_cpp";    //for debug
     return push;
+    //return 0; //for debug
 }

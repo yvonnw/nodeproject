@@ -121,24 +121,23 @@ string MyDB::exeSQL_getPreference(string sql){
             row = mysql_fetch_row(result);
 
             for(int j=0; j<mysql_num_fields(result); ++j){   //columns of each row
-                cout << row[j] << " ";
+                //cout << row[j] << " ";
                 string ttitle = row[j];
                 string t = row[j];
-                t = "add master field when register";
                 int size = 0;
                 int index = 0;
                 string target = "";
                 int position = 0;
                 string sub1 = "";
                 int word_size=0;
-                string words[] = {"when", "if", "while", "where", "who"}; // add master field when register
+                string words[] = {" when ", " if ", " while ", " where ", " who "}; // add master field when register
                 for (int ind=0; ind<5; ind++){
                     target = words[ind];
                     position = t.find(target);
                     if (position>=0){
                         size = t.size();
                         word_size=target.size();
-                        t=t.substr(position+word_size+1,size);
+                        t=t.substr(position+word_size,size);
                         preference = preference+t+"****";
                     }
                     
@@ -164,18 +163,18 @@ string MyDB::exeSQL_getPreference(string sql){
                     }
                     preference += "****";
                 }
-
-                string prepositions[8]={"with","of","in","at","on","for","from","to"};
+                if (space_num>=4){
+                string prepositions[8]={" with "," of "," in "," at "," on "," for "," from "," to "};
                 for (int index=0; index<8; index++){
-                    //string target = "with "; //e.g. edit record with jquery 
+                    //string target = "with "; //e.g. edit record with jquery for debug
                     target = prepositions[index];
                     position = ttitle.find(target);
                     size = ttitle.size();
                     if (position>=0) {
                         string sub = ttitle.substr(position,size); //get the string with 'with'
                         size = sub.size();
-                        position = sub.find(" ");
-                        sub1 = sub.substr(position+1,size); // cut 'with '
+                        int target_size = target.size();
+                        sub1 = sub.substr(target_size,size); // cut 'with '
                         position = 0;               
                         if (!(position=sub1.find("the "))){  // cut 'the'
                             sub1 = sub1.substr(position+4,size); 
@@ -192,11 +191,12 @@ string MyDB::exeSQL_getPreference(string sql){
                         sub1 = sub1.substr(0,position);
                         */
                         preference = preference+sub1+"****";    // get all the words after preposition, e.g. prohibit po to close story                                           
-                        cout << preference;
+                        //cout << preference;
                     }// if (position)
                     } // for index
+                  } //if space_num>=4
                 } //for j
-                cout << endl;
+                //cout << endl;
             } //for i
             mysql_free_result(result);  //release memory of result
         } // else

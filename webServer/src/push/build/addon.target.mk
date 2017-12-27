@@ -38,7 +38,8 @@ INCS_Debug := \
 	-I/home/yv/.node-gyp/8.6.0/include/node \
 	-I/home/yv/.node-gyp/8.6.0/src \
 	-I/home/yv/.node-gyp/8.6.0/deps/uv/include \
-	-I/home/yv/.node-gyp/8.6.0/deps/v8/include
+	-I/home/yv/.node-gyp/8.6.0/deps/v8/include \
+	-I$(srcdir)/-I/usr/include/mysql
 
 DEFS_Release := \
 	'-DNODE_GYP_MODULE_NAME=addon' \
@@ -73,11 +74,12 @@ INCS_Release := \
 	-I/home/yv/.node-gyp/8.6.0/include/node \
 	-I/home/yv/.node-gyp/8.6.0/src \
 	-I/home/yv/.node-gyp/8.6.0/deps/uv/include \
-	-I/home/yv/.node-gyp/8.6.0/deps/v8/include
+	-I/home/yv/.node-gyp/8.6.0/deps/v8/include \
+	-I$(srcdir)/-I/usr/include/mysql
 
 OBJS := \
 	$(obj).target/$(TARGET)/push.o \
-	$(obj).target/$(TARGET)/main.o \
+	$(obj).target/$(TARGET)/pushtask.o \
 	$(obj).target/$(TARGET)/MyDB.o
 
 # Add to the list of files we specially track dependencies for.
@@ -123,7 +125,8 @@ LDFLAGS_Release := \
 	-rdynamic \
 	-m64
 
-LIBS :=
+LIBS := \
+	-L/usr/lib/x86_64-linux-gnu -lmysqlclient -lpthread -lz -lm -lrt -ldl
 
 $(obj).target/addon.node: GYP_LDFLAGS := $(LDFLAGS_$(BUILDTYPE))
 $(obj).target/addon.node: LIBS := $(LIBS)
