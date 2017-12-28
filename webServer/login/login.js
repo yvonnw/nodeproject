@@ -89,7 +89,7 @@ exports.index = function(req,res){
         				if (userrole == 'master'){m=1};
         				if (userrole == 'team member'){m=2};
         				console.log('m = '+m);
-        				var features = ['search','list','create','edit','del','pool'] 
+        				var features = ['search','list','create','edit','del','pool','push'] 
 
         				for (var i in features){
                 			switch (features[i]){
@@ -105,6 +105,8 @@ exports.index = function(req,res){
                     			break;
                     			case 'pool': var pool = res.role.pool.at(m).text();
                     			break;
+                    			case 'push': var push = res.role.push.at(m).text();
+                    			break;
                 						}
 
             			}
@@ -114,6 +116,7 @@ exports.index = function(req,res){
 			            console.log('edit = '+edit);  
 			            console.log('del = '+del);   
 			            console.log('pool = '+pool);
+			            console.log('push = '+push);
 
 			            var content = "<!DOCTYPE html><html><head><meta charset='UTF-8'/><title>Home</title>"+
     			  					  "<script src='https://cdn.bootcss.com/react/15.4.2/react.min.js'></script>"+
@@ -165,6 +168,9 @@ exports.index = function(req,res){
 				           };
 				        if (pool == 'task'){
 							content+="<div id='poolTask'></div><script type='text/babel' src='pooltask.js'></script>"
+				           };
+				           if (push == 'task'){
+							content+="<div id='pushTask'></div><script type='text/babel' src='pushtask.js'></script>"
 				           };
 
 

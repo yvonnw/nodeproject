@@ -25,5 +25,6 @@
 		<edit>task_teammember</edit>
 		<del>prohibited</del>
 		<pool>task</pool>
+		<push>task</push>
 	
 </role>

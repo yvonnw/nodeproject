@@ -4,6 +4,13 @@ push addon to push recommeneded tasks
 
 
 
+[2017_12_28]
+apply push onto webserver.
+
+for new addon, I will spend some time on python study of internet-related module, 12/30,31 and 1/1 is lawful holiday for new year, so see you later on 1/2 of 2018.
+
+
+
 [2017_12_27]
 push addon is done, off early today as celebration.
 

@@ -111,6 +111,9 @@ app.get('/fetchTask', fetchTask.index);
 var poolTask = require('./fetch/poolTask');
 app.get('/poolTask', poolTask.index);
 
+var pushTask = require('./fetch/pushTask');
+app.get('/pushTask', pushTask.index);
+
 var editStory = require('./Search/editStory');
 app.get('/editStory', editStory.index);
 
