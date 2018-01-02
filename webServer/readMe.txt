@@ -4,6 +4,14 @@ push addon to push recommeneded tasks
 
 
 
+
+
+[2018_1_2]
+new addon is supposed to provide all the detailed information of stroy for po, spider is used to capture all the information.
+
+currently, spider can access database and capture the whole page, but it fails to get certain element, I am working on it.
+
+
 [2017_12_28]
 apply push onto webserver.
 

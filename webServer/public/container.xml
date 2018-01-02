@@ -7,7 +7,7 @@
 		<edit>story</edit>
 		<del>story</del>
 		<pool>prohibited</pool>
-	
+		<push>prohibited</push>
 	
 		<title>master</title>
 		<search>search bar</search>
@@ -16,7 +16,7 @@
 		<edit>task</edit>
 		<del>task</del>
 		<pool>prohibited</pool>
-
+		<push>prohibited</push>
 	
 		<title>team member</title>
 		<search>search bar</search>
