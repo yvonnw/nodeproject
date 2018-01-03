@@ -3,27 +3,25 @@ import urllib
 import MySQLdb
 from bs4 import BeautifulSoup
 
-story = "4"   # hard code, story will be a parameter delivered from js
+# hard code, story will be a parameter delivered from js
+story = "4"   
 
-#get master from db according to story
 db = MySQLdb.connect("localhost","root","123456","agile")
 cursor = db.cursor()
-cursor.execute("select owner from story where title='"+story+"'")
-master = cursor.fetchone()
-
+cursor.execute("select owner from story where title = '"+story+"'")
+master = cursor.fetchone()		
 # convert tuple to string 
 master = master.__str__() #('yv_master',)
 length = len(master)
 length = length-3
-master = master[2:length]
-
+master = master[2:length]	
 db.close()
+
 
 # capture page
 request = urllib2.Request("http://localhost:3000/storytask_"+master+".html")
 response = urllib2.urlopen(request)
 html = response.read()
-#print html
-
+print html
 soup = BeautifulSoup(response, "lxml")
 print soup.p
