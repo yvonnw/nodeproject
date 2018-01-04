@@ -6,10 +6,19 @@ push addon to push recommeneded tasks
 
 
 
+
+[2018_1_4]
+bar chart for compeleting progress is done.
+
+I am working on embeding python into c
+
+
+
+
 [2018_1_3]
 chart is drawn to make data more visible than collecting all the information by spider.
 
-pie char for status overall is done, I will work on bar char for compeleting progress of each stroy later.
+pie chart for status overall is done, I will work on bar chart for compeleting progress of each stroy later.
 
 
 [2018_1_2]
