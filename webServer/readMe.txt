@@ -6,6 +6,9 @@ push addon to push recommeneded tasks
 
 
 
+[2018_1_5]
+python is embeded into c.
+
 
 [2018_1_4]
 bar chart for compeleting progress is done.

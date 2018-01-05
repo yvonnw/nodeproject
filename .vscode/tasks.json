@@ -9,7 +9,8 @@
             "command": "g++",
             //"args": ["-g","${file}","-I","/usr/local/mysql/include","-L","/usr/local/mysql/lib","-lmysqlclient"],   
                
-            "args": ["-g","/home/yv/cworld/nodeproject/webServer/src/push/MyDB.h","/home/yv/cworld/nodeproject/webServer/src/push/MyDB.cpp","/home/yv/cworld/nodeproject/webServer/src/push/pushtask.cpp","-I","/usr/local/mysql/include","-L","/usr/local/mysql/lib","-lmysqlclient"],      
+            //"args": ["-g","/home/yv/cworld/nodeproject/webServer/src/push/MyDB.h","/home/yv/cworld/nodeproject/webServer/src/push/MyDB.cpp","/home/yv/cworld/nodeproject/webServer/src/push/pushtask.cpp","-I","/usr/local/mysql/include","-L","/usr/local/mysql/lib","-lmysqlclient"],      
+            "args": ["-g","/home/yv/cworld/nodeproject/webServer/src/statistics/draw.cpp","/usr/include/python2.7/Python.h", "-I/usr/include/python2.7", "-I/usr/include/x86_64-linux-gnu/python2.7", "-L/usr/lib/python2.7/config-x86_64-linux-gnu", "-L/usr/lib", "-lpython2.7"], 
             "problemMatcher":"$gcc"
             }
             ]

@@ -37,5 +37,3 @@ def draw_bar(po):
 	return 0
 
 
-
-

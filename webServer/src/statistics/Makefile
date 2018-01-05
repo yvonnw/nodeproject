@@ -1,2 +1,2 @@
 files:draw.cpp /usr/include/python2.7/Python.h
-	g++ draw.cpp /usr/include/python2.7/Python.h -L/usr/lib/x86_64-linux-gnu -lmysqlclient -lpthread -lz -lm -lrt -ldl
+	g++ draw.cpp /usr/include/python2.7/Python.h -I/usr/include/python2.7 -I/usr/include/x86_64-linux-gnu/python2.7 -L/usr/lib/python2.7/config-x86_64-linux-gnu -L/usr/lib -lpython2.7
