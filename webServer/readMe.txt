@@ -6,6 +6,23 @@ push addon to push recommeneded tasks
 
 
 
+[2018_1_6]
+For embeding into node, pass compile, but error pops up when triger it via draw.node and is shown as below
+
+node: symbol lookup error: /home/yv/cworld/nodeproject/webServer/src/statistics/build/Release/draw.node: undefined symbol: _Z7drawPieNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE
+
+
+nm tells that as below
+                 U drawPie(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >)
+
+
+Drawing is done if triger via main.cpp.
+
+I have no idea why drawPie is regared as undefined by node, drawPie's header file is included.
+
+
+
+
 [2018_1_5]
 python is embeded into c.
 

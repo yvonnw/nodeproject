@@ -1,11 +1,15 @@
+/*********************************************************
+embed python into c
+*********************************************************/
 #include <iostream>
 #include "/usr/include/python2.7/Python.h"
 
 using namespace std;
+//int main(){
+int drawPie(string username){	
+	//string username = "yv_po";
+	const char *po = username.c_str(); 
 
-int main(){	
-	
-	char *po="yv_po"; 
 
 	Py_Initialize();
 	PyRun_SimpleString("import sys");
@@ -34,7 +38,7 @@ int main(){
 	cout << result << endl;
 
 	Py_Finalize();
-
+	
 	return 0;
 
 }
