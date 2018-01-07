@@ -125,7 +125,7 @@ LDFLAGS_Release := \
 	-m64
 
 LIBS := \
-	-L/usr/lib/python2.7/config-x86_64-linux-gnu -L/usr/lib -lpython2.7
+	-L/usr/lib/python2.7/config-x86_64-linux-gnu -L/usr/lib -lpython2.7 -ldraw
 
 $(obj).target/draw.node: GYP_LDFLAGS := $(LDFLAGS_$(BUILDTYPE))
 $(obj).target/draw.node: LIBS := $(LIBS)

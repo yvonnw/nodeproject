@@ -5,6 +5,39 @@ push addon to push recommeneded tasks
 
 
 
+[2018_1_7]
+Bad news, still no progress moving ahead.
+
+It is tried to generate a lib libdraw.a and copied under /usr/lib and /lib, 
+
+- error tells as below when build:
+make: Entering directory '/home/yv/cworld/nodeproject/webServer/src/statistics/build'
+  CXX(target) Release/obj.target/draw/draw.o
+  SOLINK_MODULE(target) Release/obj.target/draw.node
+/usr/bin/ld: /usr/lib/libdraw.a(draw.o): relocation R_X86_64_32 against `.rodata' can not be used when making a shared object; recompile with -fPIC
+/usr/lib/libdraw.a: error adding symbols: Bad value
+collect2: error: ld returned 1 exit status
+draw.target.mk:134: recipe for target 'Release/obj.target/draw.node' failed
+
+
+- error tells as below when g++ -o main main.cpp -L/usr/lib -lpython2.7 -ldraw:
+/usr/lib/libdraw.a(draw.o): In function `drawPie(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >)':
+draw.cpp:(.text+0x2c): undefined reference to `Py_Initialize'
+draw.cpp:(.text+0x3b): undefined reference to `PyRun_SimpleStringFlags'
+draw.cpp:(.text+0x4a): undefined reference to `PyRun_SimpleStringFlags'
+draw.cpp:(.text+0x64): undefined reference to `PyImport_ImportModule'
+draw.cpp:(.text+0x79): undefined reference to `PyObject_GetAttrString'
+draw.cpp:(.text+0x87): undefined reference to `PyTuple_New'
+draw.cpp:(.text+0xa1): undefined reference to `Py_BuildValue'
+draw.cpp:(.text+0xb5): undefined reference to `PyTuple_SetItem'
+draw.cpp:(.text+0xd5): undefined reference to `PyEval_CallObjectWithKeywords'
+draw.cpp:(.text+0xf3): undefined reference to `PyArg_Parse'
+draw.cpp:(.text+0x114): undefined reference to `Py_Finalize'
+collect2: error: ld returned 1 exit status
+
+
+In one word, it is always wrong whatever I did, still struggling :(
+
 
 [2018_1_6]
 For embeding into node, pass compile, but error pops up when triger it via draw.node and is shown as below

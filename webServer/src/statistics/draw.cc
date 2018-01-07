@@ -47,6 +47,7 @@ namespace demo {
 
     void init(Local<Object> exports) {
         NODE_SET_METHOD(exports, "draw", Draw);
+        
     }
     NODE_MODULE(NODE_GYP_MODULE_NAME, init)
 }
