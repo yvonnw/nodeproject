@@ -3,6 +3,16 @@ push addon to push recommeneded tasks
 
 
 
+[2018_1_8]
+libdraw.so and libpython2.7.so are linked to draw.node, but when call it via node, error is shown 'Segmentation fault (core dumped)
+'
+
+dmesg tells that 
+'[10004.165229] node[4057]: segfault at 8 ip 00007fba4c6310f0 sp 00007ffdce5ff258 error 4 in libpython2.7.so.1.0[7fba4c495000+2f2000]'
+
+maybe there is invalid operation in c files, troubleshooting is ongoing.
+
+
 
 
 [2018_1_7]

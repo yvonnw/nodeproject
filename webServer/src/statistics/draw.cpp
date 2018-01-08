@@ -3,13 +3,15 @@ embed python into c
 *********************************************************/
 #include <iostream>
 #include "/usr/include/python2.7/Python.h"
+#include "/usr/include/python2.7/pythonrun.h"
 
 using namespace std;
 //int main(){
 int drawPie(string username){	
 	//string username = "yv_po";
-	const char *po = username.c_str(); 
-
+	//const char *po = username.c_str(); //segement fault when run as node addon, pass when ./a.out
+	char *po = new char[50];
+    strcpy(po, username.c_str());
 
 	Py_Initialize();
 	PyRun_SimpleString("import sys");

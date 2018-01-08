@@ -78,7 +78,6 @@ INCS_Release := \
 	-I$(srcdir)/-I/usr/include/python2.7 -I/usr/include/x86_64-linux-gnu/python2.7
 
 OBJS := \
-	$(obj).target/$(TARGET)/draw.o \
 	$(obj).target/$(TARGET)/draw.o
 
 # Add to the list of files we specially track dependencies for.
@@ -95,21 +94,12 @@ $(OBJS): GYP_CXXFLAGS := $(DEFS_$(BUILDTYPE)) $(INCS_$(BUILDTYPE))  $(CFLAGS_$(B
 $(obj).$(TOOLSET)/$(TARGET)/%.o: $(srcdir)/%.cc FORCE_DO_CMD
 	@$(call do_cmd,cxx,1)
 
-$(obj).$(TOOLSET)/$(TARGET)/%.o: $(srcdir)/%.cpp FORCE_DO_CMD
-	@$(call do_cmd,cxx,1)
-
 # Try building from generated source, too.
 
 $(obj).$(TOOLSET)/$(TARGET)/%.o: $(obj).$(TOOLSET)/%.cc FORCE_DO_CMD
 	@$(call do_cmd,cxx,1)
 
-$(obj).$(TOOLSET)/$(TARGET)/%.o: $(obj).$(TOOLSET)/%.cpp FORCE_DO_CMD
-	@$(call do_cmd,cxx,1)
-
 $(obj).$(TOOLSET)/$(TARGET)/%.o: $(obj)/%.cc FORCE_DO_CMD
-	@$(call do_cmd,cxx,1)
-
-$(obj).$(TOOLSET)/$(TARGET)/%.o: $(obj)/%.cpp FORCE_DO_CMD
 	@$(call do_cmd,cxx,1)
 
 # End of this set of suffix rules
@@ -125,7 +115,7 @@ LDFLAGS_Release := \
 	-m64
 
 LIBS := \
-	-L/usr/lib/python2.7/config-x86_64-linux-gnu -L/usr/lib -lpython2.7 -ldraw
+	-L/usr/lib/python2.7/config-x86_64-linux-gnu -lpython2.7 -L/usr/lib -ldraw
 
 $(obj).target/draw.node: GYP_LDFLAGS := $(LDFLAGS_$(BUILDTYPE))
 $(obj).target/draw.node: LIBS := $(LIBS)

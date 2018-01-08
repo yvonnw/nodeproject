@@ -1,2 +1,3 @@
 files:draw.cpp main.cpp /usr/include/python2.7/Python.h
-	g++ draw.cpp main.cpp /usr/include/python2.7/Python.h -I/usr/include/python2.7 -I/usr/include/x86_64-linux-gnu/python2.7 -L/usr/lib/python2.7/config-x86_64-linux-gnu -L/usr/lib -lpython2.7
+	g++ -c -fPIC draw.cpp /usr/include/python2.7/Python.h -I/usr/include/python2.7 -I/usr/include/x86_64-linux-gnu/python2.7 -L/usr/lib/python2.7/config-x86_64-linux-gnu -L/usr/lib -lpython2.7
+	g++ -fPIC -shared -o libdraw.so draw.o /usr/include/python2.7/Python.h -I/usr/include/python2.7 -I/usr/include/x86_64-linux-gnu/python2.7 -L/usr/lib/python2.7/config-x86_64-linux-gnu -L/usr/lib -lpython2.7
