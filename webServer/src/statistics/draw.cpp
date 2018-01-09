@@ -8,21 +8,22 @@ embed python into c
 using namespace std;
 //int main(){
 int drawPie(string username){	
-	//string username = "yv_po";
+	//string po = "yv_po";
 	//const char *po = username.c_str(); //segement fault when run as node addon, pass when ./a.out
 	char *po = new char[50];
     strcpy(po, username.c_str());
 
 	Py_Initialize();
 	PyRun_SimpleString("import sys");
-	//PyRun_SimpleString("sys.path.append('/home/yv/cworld/nodeproject/webServer/src/statistics')");
-	PyRun_SimpleString("sys.path.append('./')"); //add current directory to path
+	PyRun_SimpleString("sys.path.append('./webServer/src/statistics')");
+	//PyRun_SimpleString("sys.path.append('./')"); //add current directory to path, work fine in a.out
+	
 	PyObject *pModule = NULL;
 	PyObject *pFunc = NULL;
 	
-	pModule = PyImport_ImportModule("pie"); //pie.py	
-	pFunc = PyObject_GetAttrString(pModule,"draw_pie"); //function in pie.py
-
+	pModule = PyImport_ImportModule("pie"); //pie.py		
+	//pFunc = PyObject_GetAttrString(pModule,"draw_pie"); //function in pie.py
+/*
 	// parameter
 	PyObject *pArgs = PyTuple_New(1); //the number of parameter
 	PyTuple_SetItem(pArgs,0,Py_BuildValue("s", po)); //convert string to tuple
@@ -36,8 +37,8 @@ int drawPie(string username){
 	
 	int result;
 	PyArg_Parse(pReturn,"i",&result);
-
-	cout << result << endl;
+*/
+	cout << pModule << endl;
 
 	Py_Finalize();
 	
