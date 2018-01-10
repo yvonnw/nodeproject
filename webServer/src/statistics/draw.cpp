@@ -15,13 +15,14 @@ int drawPie(string username){
 
 	Py_Initialize();
 	PyRun_SimpleString("import sys");
-	PyRun_SimpleString("sys.path.append('./webServer/src/statistics')");
-	//PyRun_SimpleString("sys.path.append('./')"); //add current directory to path, work fine in a.out
+	//PyRun_SimpleString("sys.path.append('./webServer/src/statistics')");
+	PyRun_SimpleString("sys.path.append('./')"); //add current directory to path, work fine in a.out
 	
 	PyObject *pModule = NULL;
 	PyObject *pFunc = NULL;
 	
-	pModule = PyImport_ImportModule("pie"); //pie.py		
+	pModule = PyImport_ImportModule("pie"); //pie.py	
+	PyErr_Print();	//print python error for debug
 	//pFunc = PyObject_GetAttrString(pModule,"draw_pie"); //function in pie.py
 /*
 	// parameter

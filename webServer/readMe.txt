@@ -3,6 +3,15 @@ push addon to push recommeneded tasks
 
 
 
+
+[2018_1_10]
+By printing python error in draw.cpp, root cause is python import, error message: 
+ImportError: /usr/lib/python2.7/dist-packages/numpy/core/multiarray.x86_64-linux-gnu.so: undefined symbol: PyExc_SystemError
+
+all the parameters mentioned in offical python document are added in compiling line, but same error still happens, so I send mail to python to seek supports. unfortunately, not sure when the reply will be received, I am gonna find other solution.
+
+
+
 [2018_1_9]
 segement fault is highly suspected to be caused by pModule = PyImport_ImportModule("pie") or 'append path' in draw.cpp.
 
