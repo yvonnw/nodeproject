@@ -8,6 +8,7 @@
 		<del>story</del>
 		<pool>prohibited</pool>
 		<push>prohibited</push>
+		<overview>allowed</overview>
 	
 		<title>master</title>
 		<search>search bar</search>
@@ -17,6 +18,7 @@
 		<del>task</del>
 		<pool>prohibited</pool>
 		<push>prohibited</push>
+		<overview>prohibited</overview>
 	
 		<title>team member</title>
 		<search>search bar</search>
@@ -26,5 +28,6 @@
 		<del>prohibited</del>
 		<pool>task</pool>
 		<push>task</push>
+		<overview>prohibited</overview>
 	
 </role>

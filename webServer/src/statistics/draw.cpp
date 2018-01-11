@@ -1,5 +1,7 @@
 /*********************************************************
 embed python into c
+
+when call pie.py via node ImportError: /usr/lib/python2.7/dist-packages/numpy/core/multiarray.x86_64-linux-gnu.so: undefined symbol: PyExc_SystemError
 *********************************************************/
 #include <iostream>
 #include "/usr/include/python2.7/Python.h"

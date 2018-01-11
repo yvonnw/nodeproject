@@ -4,6 +4,11 @@ push addon to push recommeneded tasks
 
 
 
+[2018_1_11]
+python can be called by nodejs via node's child_process, it is so powerful.
+
+
+
 [2018_1_10]
 By printing python error in draw.cpp, root cause is python import, error message: 
 ImportError: /usr/lib/python2.7/dist-packages/numpy/core/multiarray.x86_64-linux-gnu.so: undefined symbol: PyExc_SystemError
