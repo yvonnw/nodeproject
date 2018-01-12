@@ -6,8 +6,9 @@ import urllib
 import matplotlib.pyplot as plt
 import sql_query
 import sys
-
+#po = "yv_po"
 #get data within 2 months from db 
+print sys.argv[1]
 total_amount = sql_query.counter_sql("select count(*) from story where po='"+sys.argv[1]+"' and (date_sub(now(),interval 60 day)<createTime)")
 open_amount = sql_query.counter_sql("select count(*) from story where po = '"+sys.argv[1]+"' and status='open' and (date_sub(now(),interval 60 day)<createTime)")
 closed_amount = sql_query.counter_sql("select count(*) from story where po = '"+sys.argv[1]+"' and status='closed' and (date_sub(now(),interval 60 day)<createTime)")
@@ -25,9 +26,9 @@ if total_amount>0:
 	label = ['open','pending','closed']
 	quants = [open_rate,pending_rate,closed_rate]
 	plt.pie(quants, explode=expl, colors=color, labels=label, autopct='%1.2f%%', pctdistance=0.8, shadow=True)
-	plt.title('Status Overview', bbox={'facecolor':'0.8', 'pad':5})
-	plt.show()
-	plt.savefig("overview_"+sys.argv[1]+".jpg")
+	plt.title('Status Overview', bbox={'facecolor':'0.8', 'pad':5})	
+	#plt.show()
+	plt.savefig("overview_"+sys.argv[1]+".jpg")	
 	plt.close()
 	print sys.argv[1]
 

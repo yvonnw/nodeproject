@@ -1,5 +1,14 @@
 [Feature list - caddon branch]: 
 push addon to push recommeneded tasks
+call python to generate pie and bar char by statistic story and task in db
+
+
+
+
+
+
+[2018_1_12]
+add drawing bar in node and make both pie and bar display on page.
 
 
 
